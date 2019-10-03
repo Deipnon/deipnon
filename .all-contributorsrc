@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "lexor",
+      "name": "Emre DEĞER",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/6876048?v=4",
+      "profile": "https://github.com/lexor",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "deipnon",
+  "projectOwner": "melihkorkmaz",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
