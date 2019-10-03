@@ -1,0 +1,36 @@
+{
+  "name": "deipnon",
+  "private": true,
+  "license": "ISC",
+  "scripts": {
+    "eslint": "eslint ./packages --fix",
+    "lerna": "lerna",
+    "storybook": "lerna run storybook --scope @deipnon/components",
+    "addpackage": "lerna add",
+    "addpackage:website": "npm run addpackage -- --scope=@deipnon/website",
+    "addpackage:dashboard": "npm run addpackage -- --scope=@deipnon/dashboard",
+    "addpackage:api": "npm run addpackage -- --scope=@deipnon/api",
+    "addpackage:components": "npm run addpackage -- --scope=@deipnon/components",
+    "api:dev": "lerna run dev --parallel --scope @deipnon/utils --scope @deipnon/api",
+    "components:dev": "lerna run dev --scope @deipnon/components",
+    "website:dev": "lerna run dev --parallel --scope @deipnon/api --scope @deipnon/components --scope @deipnon/website",
+    "dashboard:dev": "lerna run dev --parallel --scope @deipnon/api --scope @deipnon/components --scope @deipnon/dashboard"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-flowtype": "^4.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.1.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "lerna": "^3.16.4"
+  }
+}
