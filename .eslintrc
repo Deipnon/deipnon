@@ -1,5 +1,5 @@
 {
-  "extends": ["standard", "plugin:react/recommended"],
+  "extends": ["standard", "prettier/standard", "plugin:react/recommended"],
   "env": {
     "browser": true,
     "es6": true,
@@ -16,7 +16,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react", "jest"],
+  "plugins": ["prettier", "react", "jest"],
   "rules": {
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
