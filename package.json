@@ -11,14 +11,14 @@
     "components:dev": "lerna exec --scope @deipnon/components -- npm run dev",
     "components:test": "lerna exec --scope @deipnon/components -- npm run unit",
     "dashboard:addpackage": "npm run addpackage -- --scope=@deipnon/dashboard",
-    "dashboard:dev": "lerna run dev --parallel --scope @deipnon/api --scope @deipnon/components --scope @deipnon/utils --scope @deipnon/dashboard",
+    "dashboard:dev": "lerna run dev --parallel --scope @deipnon/api --scope @deipnon/themes --scope @deipnon/components --scope @deipnon/utils --scope @deipnon/dashboard",
     "eslint": "eslint ./packages --fix",
     "install:all": "lerna bootstrap",
     "lerna": "lerna",
     "lerna:ls": "lerna ls",
-    "storybook": "lerna exec --scope @deipnon/components -- npm run storybook",
+    "storybook": "lerna run storybook --parallel --scope @deipnon/themes --scope @deipnon/components",
     "website:addpackage": "npm run addpackage -- --scope=@deipnon/website",
-    "website:dev": "lerna run dev --parallel --scope @deipnon/api --scope @deipnon/components --scope @deipnon/website",
+    "website:dev": "lerna run dev --parallel --scope @deipnon/api --scope @deipnon/themes --scope @deipnon/components --scope @deipnon/website",
     "test:all": "lerna run test --parallel"
   },
   "devDependencies": {

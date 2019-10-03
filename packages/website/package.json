@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "@deipnon/components": "^0.0.1",
+    "@deipnon/themes": "^0.0.1",
     "ramda": "^0.26.1",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
