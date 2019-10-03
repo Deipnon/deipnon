@@ -1,3 +1,12 @@
+---
+name: Feature request
+about: Suggest an idea for this project
+title: ''
+labels: ''
+assignees: ''
+
+---
+
 ## Açıklama
 
 <!--- Yapilacak isle ilgili genel aciklama -->
@@ -11,4 +20,3 @@
 ## Diğer
 
 <!--- Diğer notlar -->
-
