@@ -10,7 +10,8 @@
     "dev": "babel src --watch --out-dir lib",
     "storybook": "start-storybook -p 5555",
     "coverage": "jest --coverage",
-    "unit": "jest"
+    "test": "jest",
+    "test:update": "jest --updateSnapshot"
   },
   "dependencies": {
     "@deipnon/themes": "^0.0.1",

@@ -2,5 +2,6 @@
 node_modules
 packages/**/node_modules
 packages/**/.jest-cache
+packages/**/.jest-coverage
 packages/**/lib
 packages/**/.env
