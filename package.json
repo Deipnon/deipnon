@@ -23,6 +23,7 @@
     "test:all": "lerna run test --parallel"
   },
   "devDependencies": {
+    "@babel/preset-flow": "^7.0.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.5.0",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -38,6 +39,8 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.1.1",
     "eslint-plugin-standard": "^4.0.1",
+    "flow-bin": "^0.109.0",
+    "flow-typed": "^2.6.1",
     "lerna": "^3.16.4"
   }
 }

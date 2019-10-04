@@ -1,26 +1,41 @@
 {
-  "extends": ["standard", "prettier/standard", "plugin:react/recommended"],
-  "env": {
-    "browser": true,
-    "es6": true,
-    "jest/globals": true
-  },
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "plugins": ["prettier", "react", "jest"],
-  "rules": {
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "never"],
-    "react/prop-types": [0]
-  }
+	"extends": [
+		"standard",
+		"prettier/standard",
+		"plugin:react/recommended",
+		"plugin:flowtype/recommended"
+	],
+	"env": {
+		"browser": true,
+		"es6": true,
+		"jest/globals": true
+	},
+	"globals": {
+		"Atomics": "readonly",
+		"SharedArrayBuffer": "readonly"
+	},
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2018,
+		"sourceType": "module"
+	},
+	"plugins": ["prettier", "react", "jest", "flowtype"],
+	"rules": {
+		"linebreak-style": ["error", "unix"],
+		"quotes": ["error", "single"],
+		"semi": ["error", "never"],
+		"react/prop-types": [0],
+		"flowtype/delimiter-dangle": [2],
+		"flowtype/type-id-match": [2, "^([A-Z][a-z0-9]*)+Type$"],
+		"flowtype/sort-keys": [
+			2,
+			"asc",
+			{
+				"caseSensitive": true,
+				"natural": false
+			}
+		]
+	}
 }
