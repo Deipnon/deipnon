@@ -1,5 +1,5 @@
 # Deipnon
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 
 Deipnon project
 
@@ -12,6 +12,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/lexor"><img src="https://avatars1.githubusercontent.com/u/6876048?v=4" width="100px;" alt="Emre DEĞER"/><br /><sub><b>Emre DEĞER</b></sub></a><br /><a href="https://github.com/melihkorkmaz/deipnon/commits?author=lexor" title="Code">💻</a></td>
+    <td align="center"><a href="http://mkoseoglu.com"><img src="https://avatars0.githubusercontent.com/u/6067714?v=4" width="100px;" alt="Mert Köseoğlu"/><br /><sub><b>Mert Köseoğlu</b></sub></a><br /><a href="https://github.com/melihkorkmaz/deipnon/commits?author=mksglu" title="Code">💻</a></td>
   </tr>
 </table>
 
