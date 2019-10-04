@@ -18,7 +18,6 @@ class App {
     this.config();
     new Routes().routes(this.app);
     this.mongoSetup();
-    utils.deneme();
   }
 
   config() {
