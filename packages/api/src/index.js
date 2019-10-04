@@ -8,7 +8,10 @@ import mongoose from 'mongoose'
 
 dotEnv.config()
 
-mongoose.connect(process.env.DB_CONN, { useNewUrlParser: true })
+mongoose.connect(process.env.DB_CONN, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
 
 const app = new Express()
 
