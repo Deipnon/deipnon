@@ -5,3 +5,5 @@ packages/**/.jest-cache
 packages/**/.jest-coverage
 packages/**/lib
 packages/**/.env
+.vscode/*
+yarn-error.log
