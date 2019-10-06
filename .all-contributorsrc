@@ -33,11 +33,20 @@
         "review",
         "code"
       ]
+    },
+    {
+      "login": "gizemcetinkaya",
+      "name": "Gizem Selli",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/4254888?v=4",
+      "profile": "https://github.com/gizemcetinkaya",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "deipnon",
-  "projectOwner": "melihkorkmaz",
+  "projectOwner": "Deipnon",
   "repoType": "github",
   "repoHost": "https://github.com"
 }
