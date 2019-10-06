@@ -5,7 +5,7 @@ import { Button } from '@deipnon/components/lib'
 function App() {
   return (
     <div className="App">
-      <Button>
+      <Button color="primary" type="submit">
       My Header
       </Button>
     </div>
