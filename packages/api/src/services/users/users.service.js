@@ -1,12 +1,7 @@
-import crypto from 'crypto'
-import { Users } from '../../../models/v1'
+import { Users } from '../../../models/'
 
 const createUser = async (req) => {
   const User = new Users({
-    _id: crypto
-      .createHash('md5')
-      .update(`${req.firstName}`)
-      .digest('hex'),
     firstName: req.firstName
   })
   try {

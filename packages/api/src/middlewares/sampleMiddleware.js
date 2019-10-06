@@ -1,5 +1,5 @@
 const sampleMiddleware = (req, res, next) => {
-    console.log("hello middleware")
+  console.log('hello middleware')
   next()
 }
 
