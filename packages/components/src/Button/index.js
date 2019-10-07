@@ -7,36 +7,29 @@ import theme from '@deipnon/themes/lib'
 
 const buttonBaseStyles = css`
     display: inline-block;
-    font-weight: ${theme.styles.formFontWeight};
+    font-weight: ${theme.styles.buttonFontWeight};
     color: ${theme.styles.buttonDefaultColor};
     text-align: center;
     vertical-align: middle;
     user-select: none;
     background-color: transparent;
-    border: ${theme.styles.formBorderWidth} solid transparent;
-    padding: ${theme.styles.formPaddings};
+    border: ${theme.styles.buttonBorderWidth} solid transparent;
+    padding: ${theme.styles.buttonPaddings};
     font-size: ${theme.styles.buttonFontSize};
-    line-height: ${theme.styles.formLineHeight};
-    border-radius: ${theme.styles.formBorderRadius};
+    line-height: ${theme.styles.buttonLineHeight};
+    border-radius: ${theme.styles.buttonBorderRadius};
     cursor: pointer;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 `
 
 const buttonColors = ({ color }) => {
-    if (color === 'primary') {
-        return css`
-        color: ${theme.styles.buttonPrimaryColor};
-        background-color: ${theme.styles.buttonPrimaryBg};
-        border-color: ${theme.styles.buttonPrimaryBorderColor};
-    `
-    }
-    if (color === 'secondary') {
-        return css`
-        color: ${theme.styles.buttonSecondaryColor};
-        background-color: ${theme.styles.buttonSecondaryBg};
-        border-color: ${theme.styles.buttonSecondaryBorderColor};
-    `
-    }
+    const colorLabel = color === 'primary' ? 'Primary' : 'Secondary'
+
+    return css`
+        color: ${theme.styles[`button${colorLabel}Color`]};
+        background-color: ${theme.styles[`button${colorLabel}Bg`]};
+        border-color: ${theme.styles[`button${colorLabel}BorderColor`]};
+   `
 }
 
 const withBlock = ({ block }) => block && css`
@@ -48,12 +41,11 @@ const ButtonElement = styled.button`
     ${buttonColors}
     ${withBlock}
 `
-const props = {
-    children: Element
-}
 
 type PropsType = {
-    children: ReactNode
+    children: ReactNode,
+    color: ?string,
+    block: ?boolean
 }
 
 const Button = (props: PropsType) => <ButtonElement {...props}>{props.children}</ButtonElement>

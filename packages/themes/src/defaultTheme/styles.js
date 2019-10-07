@@ -19,6 +19,11 @@ export default {
 
 	// Buttons styles
 	buttonFontSize: fonts.size.lg,
+	buttonFontWeight: fonts.weight.sm,
+	buttonBorderWidth: '1px',
+	buttonPaddings: `${layout.basePadding * 0.75}px ${layout.basePadding * 1.5}px`,
+	buttonLineHeight: fonts.lineHeight.md,
+	buttonBorderRadius: `${layout.radius.sm}px`,
 	buttonDefaultColor: colors.shark,
 	buttonPrimaryBg: colors.azureRadiance,
 	buttonPrimaryBorderColor: colors.azureRadiance,
