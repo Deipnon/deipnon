@@ -9,7 +9,8 @@ export default {
 	},
 	size: {
 		xxs: '9px',
-		md: '14px'
+		md: '14px',
+		lg: '16px'
 	},
 	lineHeight: {
 		base: '1.15',
