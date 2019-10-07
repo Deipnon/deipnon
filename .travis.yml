@@ -1,0 +1,6 @@
+language: nodejs
+node_js: 'stable'
+install: npm run install:all
+script: npm run test:all
+notifications:
+  email: melihkorkmaz84@gmail.com

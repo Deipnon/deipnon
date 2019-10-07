@@ -1,17 +1,9 @@
 // @flow
+
 import * as React from 'react'
-import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-
+import styled from '@emotion/styled'
 import theme from '@deipnon/themes/lib'
-
-type PropsType = {|
-	hasError: boolean,
-	onChange: (e: SyntheticEvent<HTMLInputElement>) => void,
-	placeholder: ?string,
-	type: string,
-	value: ?string
-|}
 
 const inputBaseStyle = css`
 	display: block;
@@ -24,26 +16,31 @@ const inputBaseStyle = css`
 	background-clip: padding-box;
 	border: ${theme.styles.formBorderWidth} solid ${theme.styles.formBorderColor};
 	border-radius: ${theme.styles.formBorderRadius};
+	height: ${theme.styles.formHeight};
 `
-
-const withError = ({ hasError }: PropsType) => {
-	if (hasError) {
+const withBlock = ({ block }) => {
+	if (block) {
 		return css`
-			border-color: ${theme.styles.formErrorBorderColor};
+			width: 100%;
 		`
 	}
 }
 
-const InputElement = styled('input')(
-	inputBaseStyle,
-	withError
-)
+const SelectElement = styled('select')(inputBaseStyle, withBlock)
 
-const InputField = (props: PropsType) => <InputElement {...props} />
+type PropsType = {|
+	block: ?boolean,
+	children: React$Node,
+	onChange: (e: SyntheticEvent<HTMLSelectElement>) => void,
+	value: ?string
+|}
 
-InputField.defaultProps = {
-	type: 'text',
-	hasError: false
+const Select = (props: PropsType) => (<SelectElement {...props} >
+	{props.children}
+</SelectElement>)
+
+Select.defaultProps = {
+	block: false
 }
 
-export default InputField
+export default Select
