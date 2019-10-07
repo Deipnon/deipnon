@@ -1,4 +1,5 @@
-const deneme = () => console.log('Deneme')
+// @flow
+const deneme = (parameter: string) => console.log(`Test: ${parameter}`)
 
 export default {
   deneme

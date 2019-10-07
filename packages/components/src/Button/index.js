@@ -7,17 +7,17 @@ import theme from '@deipnon/themes/lib'
 
 const buttonBaseStyles = css`
     display: inline-block;
-    font-weight: 400;
-    color: #212529;
+    font-weight: ${theme.styles.formFontWeight};
+    color: ${theme.styles.buttonDefaultColor};
     text-align: center;
     vertical-align: middle;
     user-select: none;
     background-color: transparent;
-    border: 1px solid transparent;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: .25rem;
+    border: ${theme.styles.formBorderWidth} solid transparent;
+    padding: ${theme.styles.formPaddings};
+    font-size: ${theme.styles.buttonFontSize};
+    line-height: ${theme.styles.formLineHeight};
+    border-radius: ${theme.styles.formBorderRadius};
     cursor: pointer;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 `
@@ -25,16 +25,16 @@ const buttonBaseStyles = css`
 const buttonColors = ({ color }) => {
     if (color === 'primary') {
         return css`
-        color: #fff;
-        background-color: #007bff;
-        border-color: #007bff;
+        color: ${theme.styles.buttonPrimaryColor};
+        background-color: ${theme.styles.buttonPrimaryBg};
+        border-color: ${theme.styles.buttonPrimaryBorderColor};
     `
     }
     if (color === 'secondary') {
         return css`
-        color: #fff;
-        background-color: #6c757d;
-        border-color: #6c757d;
+        color: ${theme.styles.buttonSecondaryColor};
+        background-color: ${theme.styles.buttonSecondaryBg};
+        border-color: ${theme.styles.buttonSecondaryBorderColor};
     `
     }
 }
@@ -48,6 +48,9 @@ const ButtonElement = styled.button`
     ${buttonColors}
     ${withBlock}
 `
+const props = {
+    children: Element
+}
 
 type PropsType = {
     children: ReactNode

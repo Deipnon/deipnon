@@ -6,6 +6,8 @@
     "addpackage": "lerna add",
     "api:addpackage": "npm run addpackage -- --scope=@deipnon/api",
     "api:dev": "lerna run dev --parallel --scope @deipnon/utils --scope @deipnon/api",
+    "api:test": "lerna run test --parallel --scope=@deipnon/api",
+    "build:all": "lerna run build --parallel",
     "clean:all": "lerna clean",
     "components:addpackage": "npm run addpackage -- --scope=@deipnon/components",
     "components:dev": "lerna exec --scope @deipnon/components -- npm run dev",
@@ -14,15 +16,19 @@
     "dashboard:addpackage": "npm run addpackage -- --scope=@deipnon/dashboard",
     "dashboard:dev": "lerna run dev --parallel --scope @deipnon/api --scope @deipnon/themes --scope @deipnon/components --scope @deipnon/utils --scope @deipnon/dashboard",
     "eslint": "eslint ./packages --fix",
-    "install:all": "lerna bootstrap",
+    "install:packages": "lerna bootstrap",
+    "install:all": "npm install && npm run install:packages && npm run build:all",
     "lerna": "lerna",
     "lerna:ls": "lerna ls",
     "storybook": "lerna run storybook --parallel --scope @deipnon/themes --scope @deipnon/components",
     "website:addpackage": "npm run addpackage -- --scope=@deipnon/website",
     "website:dev": "lerna run dev --parallel --scope @deipnon/api --scope @deipnon/themes --scope @deipnon/components --scope @deipnon/website",
-    "test:all": "lerna run test --parallel"
+    "test:all": "lerna run test --parallel",
+    "test:all:cli": "npm run test:all:update && npm run test:all",
+    "test:all:update": "lerna run test:update --parallel"
   },
   "devDependencies": {
+    "@babel/preset-flow": "^7.0.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.5.0",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -38,6 +44,8 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.1.1",
     "eslint-plugin-standard": "^4.0.1",
+    "flow-bin": "^0.109.0",
+    "flow-typed": "^2.6.1",
     "lerna": "^3.16.4"
   }
 }
