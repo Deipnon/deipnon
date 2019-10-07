@@ -1,5 +1,11 @@
-language: nodejs
-node_js: 'stable'
+language: node_js
+env:
+  CI: true
+
+node_js:
+  - 10
+
+cache: false
 install: npm run install:all
 script: npm run test:all
 notifications:
