@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select renders correctly 1`] = `
+<select
+  className="css-1so5mli"
+  onChange={[Function]}
+>
+  <option
+    value="1"
+  >
+    Test
+  </option>
+</select>
+`;
