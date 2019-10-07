@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "babel src --watch --out-dir lib",
-    "storybook": "npm run dev"
+    "storybook": "npm run dev",
+    "build": "babel src --out-dir lib"
   },
   "keywords": [],
   "author": "",
