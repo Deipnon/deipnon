@@ -4,12 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-<<<<<<< HEAD
-    "dev": "nodemon --exec babel-node src/server.js"
-=======
-    "dev": "nodemon --exec babel-node src/index.js",
+    "dev": "nodemon --exec babel-node src/server.js",
     "test": "jest --colors --passWithNoTests"
->>>>>>> 1b7e08edc11acf94341dd67c88465d53eb09d47d
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
