@@ -24,7 +24,7 @@ class App {
 	}
 
 	mongoSetup () {
-		mongoose.connect(DB_CONNECTION, { useNewUrlParser: true }).then(() => console.log('MongoDB Connected')).catch(err => console.log(err))
+		mongoose.connect(DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => console.log('MongoDB Connected')).catch(err => console.log(err))
 		mongoose.set('useCreateIndex', true)
 		mongoose.set('useFindAndModify', false)
 	}
