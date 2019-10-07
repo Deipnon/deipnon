@@ -4,4 +4,7 @@ packages/**/node_modules
 packages/**/.jest-cache
 packages/**/.jest-coverage
 packages/**/lib
+packages/**/build
 packages/**/.env
+.vscode/*
+yarn-error.log

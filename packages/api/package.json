@@ -4,13 +4,20 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+<<<<<<< HEAD
     "dev": "nodemon --exec babel-node src/server.js"
+=======
+    "dev": "nodemon --exec babel-node src/index.js",
+    "test": "jest --colors --passWithNoTests"
+>>>>>>> 1b7e08edc11acf94341dd67c88465d53eb09d47d
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/node": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
-    "nodemon": "^1.19.2"
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.2",
+    "supertest": "^4.0.2"
   },
   "keywords": [],
   "author": "",
@@ -24,5 +31,11 @@
     "helmet": "^3.21.1",
     "mongoose": "^5.7.3",
     "ramda": "^0.26.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }
