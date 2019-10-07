@@ -17,7 +17,19 @@ export default {
 	formPaddings: `${layout.basePadding * 0.75}px ${layout.basePadding * 1.5}px`,
 	formHeight: `${layout.basePadding * 4.5}px`,
 
-	// Buttons
-	primaryButtonBg: colors.blue,
-	primaryButton: colors.white
+	// Buttons styles
+	buttonFontSize: fonts.size.lg,
+	buttonFontWeight: fonts.weight.sm,
+	buttonBorderWidth: '1px',
+	buttonPaddings: `${layout.basePadding * 0.75}px ${layout.basePadding * 1.5}px`,
+	buttonLineHeight: fonts.lineHeight.md,
+	buttonBorderRadius: `${layout.radius.sm}px`,
+	buttonDefaultColor: colors.shark,
+	buttonPrimaryBg: colors.azureRadiance,
+	buttonPrimaryBorderColor: colors.azureRadiance,
+	buttonPrimaryColor: colors.white,
+	buttonSecondaryBg: colors.paleSky,
+	buttonSecondaryBorderColor: colors.paleSky,
+	buttonSecondaryColor: colors.white
+
 }
