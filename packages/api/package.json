@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon --exec babel-node src/server.js",
-    "test": "jest --colors --passWithNoTests"
+    "test": "jest --colors --notify --verbose --passWithNoTests",
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
