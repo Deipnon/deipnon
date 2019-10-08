@@ -10,18 +10,16 @@ router.post('/', (req, res) => {
 		firstName,
 		lastName,
 		email
+	}).then(user => {
+		res.send({
+			status: true,
+			data: user
+		})
+	}).catch(() => {
+		res.status(500).send({
+			status: false
+		})
 	})
-		.then(user => {
-			res.json({
-				status: true,
-				data: user
-			})
-		})
-		.catch(() => {
-			res.status(500).json({
-				status: false
-			})
-		})
 })
 
 router.get('/:id', (req, res) => {
@@ -29,15 +27,14 @@ router.get('/:id', (req, res) => {
 
 	User.findById(id)
 		.then(user => {
-			res.json({
+			res.send({
 				status: true,
 				data: user
 			})
 		})
 		.catch(() => {
-			res.status(500).json({
-				status: false,
-				data: null
+			res.status(500).send({
+				status: false
 			})
 		})
 })

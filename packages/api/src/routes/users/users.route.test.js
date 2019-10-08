@@ -32,8 +32,7 @@ describe('[API] User Endpoints', () => {
 			request(app)
 				.get(`/v1/user/${Types.ObjectId()}`)
 				.expect(500, {
-					status: false,
-					data: null
+					status: false
 				})
 		})
 	})

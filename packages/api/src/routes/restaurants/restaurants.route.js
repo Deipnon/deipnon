@@ -8,15 +8,14 @@ router.get('/:id', (req, res) => {
 
 	Restaurant.findById(id)
 		.then(restaurant => {
-			res.json({
+			res.send({
 				status: true,
 				data: restaurant
 			})
 		})
 		.catch(() => {
-			res.status(500).json({
-				status: false,
-				data: null
+			res.status(500).send({
+				status: false
 			})
 		})
 })
@@ -26,18 +25,16 @@ router.post('/', (req, res) => {
 
 	Restaurant.create({
 		restaurantName: name
+	}).then(restaurant => {
+		res.send({
+			status: true,
+			data: restaurant
+		})
+	}).catch(() => {
+		res.status(500).send({
+			status: false
+		})
 	})
-		.then(restaurant => {
-			res.json({
-				status: true,
-				data: restaurant
-			})
-		})
-		.catch(() => {
-			res.status(500).json({
-				status: false
-			})
-		})
 })
 
 router.put('/:id', (req, res) => {
@@ -46,18 +43,16 @@ router.put('/:id', (req, res) => {
 
 	Restaurant.findByIdAndUpdate(id, {
 		restaurantName: name
+	}).then(restaurant => {
+		res.send({
+			status: true,
+			data: restaurant
+		})
+	}).catch(() => {
+		res.status(500).send({
+			status: false
+		})
 	})
-		.then(restaurant => {
-			res.json({
-				status: true,
-				data: restaurant
-			})
-		})
-		.catch(() => {
-			res.status(422).json({
-				status: false
-			})
-		})
 })
 
 router.delete('/:id', (req, res) => {
@@ -65,12 +60,12 @@ router.delete('/:id', (req, res) => {
 
 	Restaurant.findByIdAndDelete(id)
 		.then(() => {
-			res.json({
+			res.send({
 				status: true
 			})
 		})
 		.catch(() => {
-			res.status(500).json({
+			res.status(500).send({
 				status: false
 			})
 		})

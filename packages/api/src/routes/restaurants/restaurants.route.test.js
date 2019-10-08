@@ -27,9 +27,8 @@ describe('[API] Restaurant Endpoints', () => {
 		it('shouldnt get restaurant', () => {
 			request(app)
 				.get(`/v1/restaurant/${Types.ObjectId()}`)
-				.expect(422, {
-					status: false,
-					data: null
+				.expect(500, {
+					status: false
 				})
 		})
 	})
