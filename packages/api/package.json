@@ -2,10 +2,10 @@
   "name": "@deipnon/api",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/index.js",
-    "test": "jest --colors"
+    "dev": "nodemon --exec babel-node src/server.js",
+    "test": "jest --colors --passWithNoTests"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
