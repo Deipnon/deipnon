@@ -23,9 +23,9 @@ const buttonBaseStyles = css`
 `
 
 const buttonColors = ({ color }) => {
-    const colorLabel = color === 'primary' ? 'Primary' : 'Secondary'
+	const colorLabel = color === 'primary' ? 'Primary' : 'Secondary'
 
-    return css`
+	return css`
         color: ${theme.styles[`button${colorLabel}Color`]};
         background-color: ${theme.styles[`button${colorLabel}Bg`]};
         border-color: ${theme.styles[`button${colorLabel}BorderColor`]};
@@ -43,11 +43,11 @@ const ButtonElement = styled.button`
 `
 
 type PropsType = {
+    block: ?boolean,
     children: ReactNode,
-    color: ?string,
-    block: ?boolean
+    color: ?string
 }
 
 const Button = (props: PropsType) => <ButtonElement {...props}>{props.children}</ButtonElement>
 
-export default Button 
+export default Button
