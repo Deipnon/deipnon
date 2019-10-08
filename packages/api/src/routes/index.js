@@ -1,9 +1,14 @@
+import { Router } from 'express'
 import { VERSION } from '../config'
 import userRoute from './users/users.route'
+import restaurantRoute from './restaurants/restaurants.route'
 
-export class Routes {
-	routes (app) {
-		app.use(`/${VERSION}/user`, userRoute)
-		// app.use(VERSION + '/foo', fooRoute)
-	}
-}
+const router = Router()
+const api = Router()
+
+router.use(`/${VERSION}`, api)
+
+api.use('/user', userRoute)
+api.use('/restaurant', restaurantRoute)
+
+export default router

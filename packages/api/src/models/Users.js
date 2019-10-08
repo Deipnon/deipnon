@@ -1,10 +1,9 @@
-import { Schema, Types } from 'mongoose'
-const ObjectIdSchema = Schema.ObjectId
-const ObjectId = Types.ObjectId
+import { Schema, model } from 'mongoose'
 
 export const UserSchema = new Schema({
-	_id: { type: ObjectIdSchema, default: function () { return new ObjectId() } },
-	firstName: { required: true, type: String }
+	firstName: { required: true, type: String },
+	lastName: { required: true, type: String },
+	email: { required: true, type: String }
 })
 
-export default ('Users', UserSchema)
+export default model('User', UserSchema)

@@ -7,6 +7,7 @@
     "api:addpackage": "npm run addpackage -- --scope=@deipnon/api",
     "api:dev": "lerna run dev --parallel --scope @deipnon/utils --scope @deipnon/api",
     "api:test": "lerna run test --parallel --scope=@deipnon/api",
+    "api:test:watch": "lerna run test:watch --parallel --scope=@deipnon/api",
     "build:all": "lerna run build --parallel",
     "clean:all": "lerna clean",
     "components:addpackage": "npm run addpackage -- --scope=@deipnon/components",

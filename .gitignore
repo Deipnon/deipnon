@@ -6,5 +6,5 @@ packages/**/.jest-coverage
 packages/**/lib
 packages/**/build
 packages/**/.env
-.vscode/*
+.vscode
 yarn-error.log
