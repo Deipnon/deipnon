@@ -1,4 +1,3 @@
-
 import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
@@ -6,13 +5,13 @@ import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 
 import { DB_CONNECTION } from './config'
-import { Routes } from './routes/'
+import Routes from './routes/'
 
 class App {
 	constructor () {
 		this.app = express()
 		this.config()
-		new Routes().routes(this.app)
+		this.app.use(Routes)
 		this.mongoSetup()
 	}
 
