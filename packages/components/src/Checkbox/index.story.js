@@ -2,25 +2,30 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withKnobs } from '@storybook/addon-knobs/react'
 
-import Checkbox from '.'
+import { CheckboxInput, CheckboxLabel, Form } from '.'
 
 const stories = storiesOf('Checkbox', module)
 stories.addDecorator(withKnobs)
 
 class CheckboxSample extends React.PureComponent {
-	constructor(props) {
+	constructor (props) {
 		super(props)
 		this.state = {
 			isChecked: false
 		}
 	}
-	handleChange = (e) => {
-		this.setState({isChecked:!this.state.isChecked})
-	}
-	render () {
-		const {state:{label,isChecked},handleChange} = this
- 		return <Checkbox label={label} onChange={handleChange} checked={isChecked} name="test" value="test"/>
 
+	handleChange = (e) => {
+		this.setState({ isChecked: !this.state.isChecked })
+	}
+
+	render () {
+		const { state: { isChecked }, handleChange } = this
+		return (
+			<Form>
+				<CheckboxLabel><CheckboxInput onChange={handleChange} checked={isChecked}></CheckboxInput>Label</CheckboxLabel>
+			</Form>
+		)
 	}
 }
 
