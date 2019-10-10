@@ -26,11 +26,18 @@ const CheckboxLabelElement = styled('label')(checkboxLabelStyle)
 type PropsType = {|
 	checked: ?boolean,
 	children: React$Node,
-	name?: string,
-	onChange: (e: SyntheticEvent<HTMLInputElement>) => void,
-	value?: string
+	onChange: (e: SyntheticEvent<HTMLInputElement>) => void
 |}
 
-export const CheckboxInput = (props: PropsType) => <CheckboxInputElement type="checkbox" {...props} />
-export const CheckboxLabel = (props: PropsType) => <CheckboxLabelElement>{props.children}</CheckboxLabelElement>
-export const Form = (props: PropsType) => <CheckboxForm>{props.children}</CheckboxForm>
+const Checkbox = (props: PropsType) => {
+	return (
+		<CheckboxForm>
+			<CheckboxLabelElement>
+				<CheckboxInputElement type="checkbox" checked={props.checked} onChange={props.onChange} />
+				{props.children}
+			</CheckboxLabelElement>
+		</CheckboxForm>
+	)
+}
+
+export default Checkbox
