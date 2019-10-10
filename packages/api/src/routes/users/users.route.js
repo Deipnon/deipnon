@@ -1,18 +1,42 @@
 import { Router } from 'express'
-import userService from '../../services/users/users.service'
+import User from '../../models/Users'
 
 const router = Router()
 
-router.post('/', async (req, res) => {
-	const user = await userService.createUser(req.body)
-	if (!user.status) return res.status(400).send(user)
-	return res.status(201).send(user)
+router.post('/', (req, res) => {
+	const { firstName, lastName, email } = req.body
+
+	User.create({
+		firstName,
+		lastName,
+		email
+	}).then(user => {
+		res.send({
+			status: true,
+			data: user
+		})
+	}).catch(() => {
+		res.status(500).send({
+			status: false
+		})
+	})
 })
 
-router.get('/', async (req, res) => {
-	const user = await userService.getUser(req.body)
-	if (!user.status) return res.status(400).send(user)
-	return res.status(201).send(user)
+router.get('/:id', (req, res) => {
+	const { id } = req.params
+
+	User.findById(id)
+		.then(user => {
+			res.send({
+				status: true,
+				data: user
+			})
+		})
+		.catch(() => {
+			res.status(500).send({
+				status: false
+			})
+		})
 })
 
 export default router
