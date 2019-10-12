@@ -3,10 +3,11 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
+import theme from '@deipnon/themes/lib'
 
 const checkboxInputStyle = css`
 	box-sizing: border-box;
-	padding: 0;
+	padding: ${theme.styles.formPaddings};
 	position: absolute;
     margin-left: -1.25rem;
 `

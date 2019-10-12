@@ -6,7 +6,7 @@ import Checkbox from '.'
 
 describe('Checkbox', () => {
 	test('renders correctly', () => {
-		const tree = renderer.create(<Checkbox onChange={() => {}}/>).toJSON()
+		const tree = renderer.create(<Checkbox checked="false" onChange={() => {}}>Remember Me</Checkbox>).toJSON()
 		expect(tree).toMatchSnapshot()
 	})
 })
