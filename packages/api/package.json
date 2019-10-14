@@ -13,6 +13,7 @@
     "@babel/node": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "apollo-server-express": "^2.9.6",
+    "babel-polyfill": "^6.26.0",
     "graphql": "^14.5.8",
     "jest": "^24.9.0",
     "lodash": "^4.17.15",

@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import request from 'supertest'
 import app from '../../app'
 import Restaurant from '../../models/Restaurants'
