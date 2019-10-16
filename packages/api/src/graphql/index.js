@@ -1,5 +1,5 @@
 import { ApolloServer } from 'apollo-server-express'
-import { merge } from 'lodash'
+import { merge } from 'ramda'
 import { IS_DEV } from '../config'
 
 import { typeDefs as BaseType } from './base'
