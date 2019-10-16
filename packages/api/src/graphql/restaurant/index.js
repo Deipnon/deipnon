@@ -23,7 +23,7 @@ export const typeDefs = gql`
         ): Restaurant! 
         deleteRestaurant(
             id: ID!
-        ): Boolean
+        ): Boolean!
     }
 
 	type Restaurant {
