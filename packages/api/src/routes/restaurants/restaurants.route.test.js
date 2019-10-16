@@ -10,7 +10,15 @@ describe('[API] Restaurant Endpoints', () => {
 
 		beforeAll(() => {
 			restaurant = Restaurant({
-				restaurantName: 'Mock Restaurant'
+				name: 'Mock Restaurant',
+				phone: '05123123123',
+				email: 'mock@restaurant.test',
+				address: {
+					addressLine: '415 Boston Post Rd',
+					zipCode: '06460',
+					city: 'Milford',
+					state: 'CT'
+				}
 			})
 		})
 
@@ -20,7 +28,15 @@ describe('[API] Restaurant Endpoints', () => {
 				.expect(200, {
 					status: true,
 					data: {
-						name: restaurant.restaurantName
+						name: restaurant.name,
+						phone: restaurant.phone,
+						email: restaurant.email,
+						address: {
+							addressLine: restaurant.address.addressLine,
+							zipCode: restaurant.address.zipCode,
+							city: restaurant.address.city,
+							state: restaurant.address.state
+						}
 					}
 				})
 		})
@@ -39,7 +55,15 @@ describe('[API] Restaurant Endpoints', () => {
 
 		beforeAll(() => {
 			restaurant = {
-				name: 'Mock Restaurant'
+				name: 'Mock Restaurant',
+				phone: '05123123123',
+				email: 'mock@restaurant.test',
+				address: {
+					addressLine: '415 Boston Post Rd',
+					zipCode: '06460',
+					city: 'Milford',
+					state: 'CT'
+				}
 			}
 		})
 
@@ -47,13 +71,29 @@ describe('[API] Restaurant Endpoints', () => {
 			request(app)
 				.post('/v1/restaurant')
 				.send({
-					name: restaurant.name
+					name: restaurant.name,
+					phone: restaurant.phone,
+					email: restaurant.email,
+					address: {
+						addressLine: restaurant.address.addressLine,
+						zipCode: restaurant.address.zipCode,
+						city: restaurant.address.city,
+						state: restaurant.address.state
+					}
 				})
 				.set('Accept', 'application/json')
 				.expect(200, {
 					status: true,
 					data: {
-						name: restaurant.name
+						name: restaurant.name,
+						phone: restaurant.phone,
+						email: restaurant.email,
+						address: {
+							addressLine: restaurant.address.addressLine,
+							zipCode: restaurant.address.zipCode,
+							city: restaurant.address.city,
+							state: restaurant.address.state
+						}
 					}
 				})
 		})
@@ -73,7 +113,15 @@ describe('[API] Restaurant Endpoints', () => {
 
 		beforeAll(() => {
 			restaurant = Restaurant({
-				restaurantName: 'Mock Restaurant'
+				name: 'Mock Restaurant',
+				phone: '05123123123',
+				email: 'mock@restaurant.test',
+				address: {
+					addressLine: '415 Boston Post Rd',
+					zipCode: '06460',
+					city: 'Milford',
+					state: 'CT'
+				}
 			})
 		})
 
@@ -81,13 +129,29 @@ describe('[API] Restaurant Endpoints', () => {
 			request(app)
 				.put(`/v1/restaurant/${restaurant.id}`)
 				.send({
-					name: restaurant.restaurantName
+					name: restaurant.name,
+					phone: restaurant.phone,
+					email: restaurant.email,
+					address: {
+						addressLine: restaurant.address.addressLine,
+						zipCode: restaurant.address.zipCode,
+						city: restaurant.address.city,
+						state: restaurant.address.state
+					}
 				})
 				.set('Accept', 'application/json')
 				.expect(200, {
 					status: true,
 					data: {
-						name: restaurant.restaurantName
+						name: restaurant.name,
+						phone: restaurant.phone,
+						email: restaurant.email,
+						address: {
+							addressLine: restaurant.address.addressLine,
+							zipCode: restaurant.address.zipCode,
+							city: restaurant.address.city,
+							state: restaurant.address.state
+						}
 					}
 				})
 		})
@@ -100,7 +164,15 @@ describe('[API] Restaurant Endpoints', () => {
 				.expect(422, {
 					status: true,
 					data: {
-						name: restaurant.restaurantName
+						name: restaurant.name,
+						phone: restaurant.phone,
+						email: restaurant.email,
+						address: {
+							addressLine: restaurant.address.addressLine,
+							zipCode: restaurant.address.zipCode,
+							city: restaurant.address.city,
+							state: restaurant.address.state
+						}
 					}
 				})
 		})
@@ -111,7 +183,15 @@ describe('[API] Restaurant Endpoints', () => {
 
 		beforeAll(() => {
 			restaurant = Restaurant({
-				restaurantName: 'Mock Restaurant'
+				name: 'Mock Restaurant',
+				phone: '05123123123',
+				email: 'mock@restaurant.test',
+				address: {
+					addressLine: '415 Boston Post Rd',
+					zipCode: '06460',
+					city: 'Milford',
+					state: 'CT'
+				}
 			})
 		})
 
