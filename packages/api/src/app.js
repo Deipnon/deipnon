@@ -1,4 +1,5 @@
 import express from 'express'
+import { apolloServer } from './graphql'
 import cors from 'cors'
 import helmet from 'helmet'
 import bodyParser from 'body-parser'
@@ -9,7 +10,12 @@ import Routes from './routes/'
 
 class App {
 	constructor () {
-		this.app = express()
+		const app = express()
+		apolloServer.applyMiddleware({
+			app,
+			path: '/graphql'
+		})
+		this.app = app
 		this.config()
 		this.app.use(Routes)
 		this.mongoSetup()
@@ -23,7 +29,13 @@ class App {
 	}
 
 	mongoSetup () {
-		mongoose.connect(DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => console.log('MongoDB Connected')).catch(err => console.log(err))
+		mongoose
+			.connect(DB_CONNECTION, {
+				useNewUrlParser: true,
+				useUnifiedTopology: true
+			})
+			.then(() => console.log('MongoDB Connected'))
+			.catch(err => console.log(err))
 		mongoose.set('useCreateIndex', true)
 		mongoose.set('useFindAndModify', false)
 	}

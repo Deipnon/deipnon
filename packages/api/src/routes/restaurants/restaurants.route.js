@@ -21,10 +21,14 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-	const { name } = req.body
+	const { name, phone, email, address, workingHours } = req.body
 
 	Restaurant.create({
-		restaurantName: name
+		name,
+		phone,
+		email,
+		address,
+		workingHours
 	}).then(restaurant => {
 		res.send({
 			status: true,
@@ -39,10 +43,14 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
 	const { id } = req.params
-	const { name } = req.body
+	const { name, phone, email, address, workingHours } = req.body
 
 	Restaurant.findByIdAndUpdate(id, {
-		restaurantName: name
+		name,
+		phone,
+		email,
+		address,
+		workingHours
 	}).then(restaurant => {
 		res.send({
 			status: true,

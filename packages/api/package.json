@@ -12,6 +12,9 @@
     "@babel/core": "^7.6.2",
     "@babel/node": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
+    "apollo-server-express": "^2.9.6",
+    "babel-polyfill": "^6.26.0",
+    "graphql": "^14.5.8",
     "jest": "^24.9.0",
     "nodemon": "^1.19.2",
     "supertest": "^4.0.2"
