@@ -1,6 +1,8 @@
-import fonts from './fonts'
-import layout from './layout'
-import colors from './colors'
+import fonts from '../fonts'
+import layout from '../layout'
+import colors from '../colors'
+
+import dashboardStyles from './dashboardStyles'
 
 export default {
 
@@ -30,6 +32,7 @@ export default {
 	buttonPrimaryColor: colors.white,
 	buttonSecondaryBg: colors.paleSky,
 	buttonSecondaryBorderColor: colors.paleSky,
-	buttonSecondaryColor: colors.white
+	buttonSecondaryColor: colors.white,
 
+	...dashboardStyles
 }
