@@ -1,5 +1,5 @@
 # Deipnon
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
 
 Deipnon project
 
@@ -15,6 +15,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://mkoseoglu.com"><img src="https://avatars0.githubusercontent.com/u/6067714?v=4" width="100px;" alt="Mert Köseoğlu"/><br /><sub><b>Mert Köseoğlu</b></sub></a><br /><a href="https://github.com/Deipnon/deipnon/commits?author=mksglu" title="Code">💻</a> <a href="#review-mksglu" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://www.findhotel.net/"><img src="https://avatars2.githubusercontent.com/u/15940533?v=4" width="100px;" alt="Melih Korkmaz"/><br /><sub><b>Melih Korkmaz</b></sub></a><br /><a href="#review-melihkorkmaz" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/Deipnon/deipnon/commits?author=melihkorkmaz" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/gizemcetinkaya"><img src="https://avatars2.githubusercontent.com/u/4254888?v=4" width="100px;" alt="Gizem Selli"/><br /><sub><b>Gizem Selli</b></sub></a><br /><a href="https://github.com/Deipnon/deipnon/commits?author=gizemcetinkaya" title="Code">💻</a></td>
+    <td align="center"><a href="https://about.me/hadeyici"><img src="https://avatars3.githubusercontent.com/u/18482866?v=4" width="100px;" alt="Hatice Ergün"/><br /><sub><b>Hatice Ergün</b></sub></a><br /><a href="https://github.com/Deipnon/deipnon/commits?author=hadeyici" title="Code">💻</a></td>
   </tr>
 </table>
 
