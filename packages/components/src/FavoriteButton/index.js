@@ -4,6 +4,7 @@ import React from 'react'
 import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
+import theme from '@deipnon/themes/lib'
 
 type PropsType = {|
     isSelected: boolean,
@@ -11,21 +12,15 @@ type PropsType = {|
 |}
 
 const EmptyIconStyle = css`
-    color:grey;
+    color: ${theme.styles.favoriteButtonColorEmpty};
 `
 const FiiledIconStyle = css`
-    color:red;
+    color: ${theme.styles.favoriteButtonColor};
 `
 const EmptyIcon = styled(IoIosHeartEmpty)(EmptyIconStyle)
 const FiiledIcon = styled(IoIosHeart)(FiiledIconStyle)
 
-const FavoriteButtonElement = (props: PropsType) => {
-    if (props.isSelected) {
-        return <FiiledIcon {...props}/>
-    }
-    return <EmptyIcon {...props}/>
-}
-
-const FavoriteButton = (props: PropsType) => <FavoriteButtonElement {...props}/>
+const FavoriteButton = (props: PropsType) => props.isSelected ? 
+<FiiledIcon {...props}/> : <EmptyIcon {...props}/>
 
 export default FavoriteButton

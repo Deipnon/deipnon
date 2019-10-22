@@ -18,7 +18,6 @@ class FavoriteButtonSample extends React.Component {
     }
 
     handleClickButton = () => {
-        console.log('click me', this.state.restorantId)
         this.setState({
             isSelected: !this.state.isSelected
         })

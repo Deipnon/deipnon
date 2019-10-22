@@ -2,7 +2,7 @@
 
 exports[`FavoriteButton Empty 1`] = `
 <svg
-  className="css-eomqaj"
+  className="css-1pfy6pg"
   fill="currentColor"
   height="1em"
   isSelected="false"
@@ -25,7 +25,7 @@ exports[`FavoriteButton Empty 1`] = `
 
 exports[`FavoriteButton Fiiled 1`] = `
 <svg
-  className="css-eomqaj"
+  className="css-1pfy6pg"
   fill="currentColor"
   height="1em"
   isSelected="true"
