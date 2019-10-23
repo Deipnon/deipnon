@@ -5,7 +5,7 @@ import 'jest-emotion'
 import Grid from '.'
 import GridInitializer from './GridInitializer'
 
-describe('Checkbox', () => {
+describe('Grid', () => {
 	test('renders correctly', () => {
 		const tree = renderer.create(<React.Fragment>
 			<GridInitializer />
