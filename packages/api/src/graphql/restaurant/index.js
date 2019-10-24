@@ -7,24 +7,22 @@ export const typeDefs = gql`
 		restaurants: [Restaurant]
 	}
 
-    extend type Mutation {
-        createRestaurant(
-            name: String!
-            phone: String!
-            email: String!
-            address: AddressInput!
-        ): Restaurant!
-        updateRestaurant(
-            id: ID!
-            name: String!
-            phone: String!
-            email: String!
-            address: AddressInput!
-        ): Restaurant! 
-        deleteRestaurant(
-            id: ID!
-        ): Boolean!
-    }
+	extend type Mutation {
+		createRestaurant(
+			name: String!
+			phone: String!
+			email: String!
+			address: AddressInput!
+		): Restaurant!
+		updateRestaurant(
+			id: ID!
+			name: String!
+			phone: String!
+			email: String!
+			address: AddressInput!
+		): Restaurant!
+		deleteRestaurant(id: ID!): Boolean!
+	}
 
 	type Restaurant {
 		_id: ID!
@@ -43,12 +41,12 @@ export const typeDefs = gql`
 		state: String!
 	}
 
-    input AddressInput {
+	input AddressInput {
 		addressLine: String!
 		zipCode: String!
 		city: String!
 		state: String!
-    }
+	}
 
 	type WorkingHours {
 		_id: ID!
