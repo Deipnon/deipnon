@@ -2,7 +2,6 @@ import { Schema, model } from 'mongoose'
 
 const CredentialsSchema = new Schema({
 	password: String,
-	passwordSalt: String,
 	lastLogin: { required: true, type: Number }
 })
 
@@ -23,7 +22,6 @@ const AddressSchema = new Schema({
 	provider: 'custom',
 	cridentials: {
 		password: 'hashed',
-		passwordSalt: 'randomText',
 		lastLogin: 1570980740601
 	},
 	addresses: [{
