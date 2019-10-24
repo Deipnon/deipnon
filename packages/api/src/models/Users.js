@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose'
 
-const CridentialsSchema = new Schema({
+const CredentialsSchema = new Schema({
 	password: String,
 	passwordSalt: String,
 	lastLogin: { required: true, type: Number }
@@ -42,7 +42,7 @@ export const UserSchema = new Schema({
 	email: { required: true, type: String },
 	provider: { required: true, type: String }, // Custom, Facebook, Google
 	providerId: { type: String }, // Kullanici eger facebook yada google ile giris yapmis ise oradaki providerID's
-	cridentials: CridentialsSchema,
+	credentials: CredentialsSchema,
 	addresses: [AddressSchema]
 })
 
