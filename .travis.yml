@@ -6,14 +6,7 @@ node_js:
   - 10
 
 cache: false
-
-install:
-  - npm install -g lerna
-  - npm install -g yarn
-  - lerna bootstrap
-
-script:
-  - yarn run test:all:cli
-
+install: npm install && npm run install:packages
+script: npm run test:all:cli
 notifications:
   email: melihkorkmaz84@gmail.com
