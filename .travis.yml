@@ -5,12 +5,12 @@ env:
 node_js:
   - 10
 
-cache: false
-
 install:
   - npm i -g lerna
   - npm install
-  - npm run install:packages
+  - lerna bootstrap
+
 script: npm run test:all:cli
+
 notifications:
   email: melihkorkmaz84@gmail.com
