@@ -83,6 +83,13 @@ export const resolvers = {
 				throw new AuthenticationError('Wrong password.')
 			}
 
+			await Users.update(
+				{ _id: user._id },
+				{
+					$set: { 'credentials.lastLogin': +new Date() }
+				}
+			)
+
 			const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1y' })
 
 			return {
