@@ -16,25 +16,29 @@ const AddressSchema = new Schema({
 })
 
 /**
+ * Example User
  * const User = {
-	name: 'Melih Korkmaz',
-	email: 'melih@test.com',
-	provider: 'custom',
-	cridentials: {
-		password: 'hashed',
-		lastLogin: 1570980740601
-	},
-	addresses: [{
-		friendlyName: 'Home',
-		addressLine: '79 Cherry St',
-		zipCode: '06460',
-		city: 'Milford',
-		state: 'CT',
-		phone: '01223344',
-		isDefault: true
-	}]
-}
+ * 	name: 'Melih Korkmaz',
+ * 	email: 'melih@test.com',
+ * 	provider: 'custom',
+ * 	credentials: {
+ * 		password: 'hashed',
+ * 		lastLogin: 1570980740601
+ * 	},
+ * 	addresses: [
+ * 		{
+ * 			friendlyName: 'Home',
+ * 			addressLine: '79 Cherry St',
+ * 			zipCode: '06460',
+ * 			city: 'Milford',
+ * 			state: 'CT',
+ * 			phone: '01223344',
+ * 			isDefault: true
+ * 		}
+ * 	]
+ * }
  */
+
 export const UserSchema = new Schema({
 	name: { required: true, type: String },
 	email: { required: true, type: String },
