@@ -83,10 +83,10 @@ export const resolvers = {
 				throw new AuthenticationError('Wrong password.')
 			}
 
-			await Users.update(
-				{ _id: user._id },
+			await Users.findByIdAndUpdate(
+				user._id,
 				{
-					$set: { 'credentials.lastLogin': +new Date() }
+					$set: { 'credentials.lastLogin': new Date() }
 				}
 			)
 
