@@ -8,6 +8,7 @@ node_js:
 cache: false
 
 install:
+  - npm i -g lerna
   - npm install
   - npm run install:packages
 script: npm run test:all:cli
