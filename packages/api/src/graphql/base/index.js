@@ -8,3 +8,5 @@ export const typeDefs = gql`
 		_: String!
 	}
 `
+
+export const directives = {}
