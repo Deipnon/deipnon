@@ -28,8 +28,8 @@ class App {
 		this.app.use(helmet())
 	}
 
-	mongoSetup () {
-		mongoose
+	async mongoSetup () {
+		await mongoose
 			.connect(DB_CONNECTION, {
 				useNewUrlParser: true,
 				useUnifiedTopology: true
