@@ -6,7 +6,7 @@ node_js:
   - 10
 
 cache: false
-install: npm run install:all
-script: npm run test:all:cli
+install: npm install & npm run install:packages
+script: npm run test:all
 notifications:
   email: melihkorkmaz84@gmail.com
