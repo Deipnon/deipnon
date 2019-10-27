@@ -59,13 +59,13 @@ Sadece apiyi ve onun bağımlı olduğu paketleri development modunda çalışt�
 Herhangi bir npm paketini (örneğin ramda) components paketine eklemek için gerekli komut. Doğrudan packages/components dizini altına gidip standard ekleme işlemi de yapabilirsiniz yada aşağıdaki komutu kullanabilirsiniz.
 
 ```
-npm run api:components npm_paket_adı
+npm run components:addpackage npm_paket_adı
 ```
 
 yada
 
 ```
-yarn api:components npm_paket_adı
+yarn components:addpackage npm_paket_adı
 ```
 
 #### components:dev
@@ -85,13 +85,13 @@ Components paketinde daha önceden oluşturulmuş snapshotları günceller.
 Herhangi bir npm paketini (örneğin ramda) dashboard paketine eklemek için gerekli komut. Doğrudan packages/dashboard dizini altına gidip standard ekleme işlemi de yapabilirsiniz yada aşağıdaki komutu kullanabilirsiniz.
 
 ```
-npm run api:dashboard npm_paket_adı
+npm run dashboard:addpackage npm_paket_adı
 ```
 
 yada
 
 ```
-yarn api:dashboard npm_paket_adı
+yarn dashboard:addpackage npm_paket_adı
 ```
 
 #### dashboard:dev
@@ -123,13 +123,13 @@ Component paketi için storybooku çalıştırır.
 Herhangi bir npm paketini (örneğin ramda) website paketine eklemek için gerekli komut. Doğrudan packages/website dizini altına gidip standard ekleme işlemi de yapabilirsiniz yada aşağıdaki komutu kullanabilirsiniz.
 
 ```
-npm run api:website npm_paket_adı
+npm run website:addpackage npm_paket_adı
 ```
 
 yada
 
 ```
-yarn api:website npm_paket_adı
+yarn website:addpackage npm_paket_adı
 ```
 
 #### website:dev
