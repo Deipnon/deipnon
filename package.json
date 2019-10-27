@@ -26,7 +26,8 @@
     "website:dev": "lerna run dev --parallel --scope @deipnon/api --scope @deipnon/themes --scope @deipnon/components --scope @deipnon/website",
     "test:all": "lerna run test --parallel",
     "test:all:cli": "npm run test:all:update && npm run test:all",
-    "test:all:update": "lerna run test:update --parallel"
+    "test:all:update": "lerna run test:update --parallel",
+    "utils:addpackage": "npm run addpackage -- --scope=@deipnon/utils"
   },
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",

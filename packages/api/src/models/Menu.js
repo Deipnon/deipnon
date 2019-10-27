@@ -5,7 +5,7 @@ const { ObjectId } = Schema.Types
 const PropertyItemSchema = new Schema({
 	name: { required: true, type: String },
 	basePrice: { required: true, type: Number }
-})
+}, { _id: false })
 
 const PropertySchema = new Schema({
 	type: { required: true, type: String }, // selectlist veya checkbox
@@ -21,13 +21,13 @@ const ProductSchema = new Schema({
 	isEnable: { required: true, type: Boolean },
 	basePrice: { required: true, type: Number },
 	properties: [PropertySchema]
-})
+}, { _id: false })
 
 const ProductGroupsSchema = new Schema({
 	name: { required: true, type: String },
 	description: String,
 	products: [ProductSchema]
-})
+}, { _id: false })
 
 /**
  * const menu = {

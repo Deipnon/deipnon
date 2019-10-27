@@ -2,29 +2,12 @@ import { gql } from 'apollo-server-express'
 import Restaurants from '../../models/Restaurants'
 
 export const typeDefs = gql`
-	extend type Query {
-		restaurant(id: ID!): Restaurant
-		restaurants: [Restaurant]
+	type Address {
+		addressLine: String!
+		zipCode: String!
+		city: String!
+		state: String!
 	}
-
-    extend type Mutation {
-        createRestaurant(
-            name: String!
-            phone: String!
-            email: String!
-            address: AddressInput!
-        ): Restaurant!
-        updateRestaurant(
-            id: ID!
-            name: String!
-            phone: String!
-            email: String!
-            address: AddressInput!
-        ): Restaurant! 
-        deleteRestaurant(
-            id: ID!
-        ): Boolean!
-    }
 
 	type Restaurant {
 		_id: ID!
@@ -32,34 +15,42 @@ export const typeDefs = gql`
 		phone: String!
 		email: String!
 		address: Address!
-		workingHours: WorkingHours!
 	}
 
-	type Address {
-		_id: ID!
+	input AddressInput {
 		addressLine: String!
 		zipCode: String!
 		city: String!
 		state: String!
 	}
 
-    input AddressInput {
-		addressLine: String!
-		zipCode: String!
-		city: String!
-		state: String!
-    }
-
-	type WorkingHours {
-		_id: ID!
-		opensAt: WorkingHour!
-		closesAt: WorkingHour!
+	input RestaurantInput {
+		name: String!
+		phone: String!
+		email: String!
+		address: AddressInput
 	}
 
-	type WorkingHour {
-		hh: Int!
-		mm: Int!
+	extend type Query {
+		restaurant(id: ID!): Restaurant
+		restaurants: [Restaurant]
 	}
+
+  extend type Mutation {
+		createRestaurant(
+			name: String!
+			phone: String!
+			email: String!
+			address: AddressInput!
+		): Restaurant!
+
+		updateRestaurant(_id: ID!, restaurant: RestaurantInput): Restaurant!
+
+		deleteRestaurant(
+			id: ID!
+		): Boolean!
+
+  }
 `
 
 export const resolvers = {
@@ -74,22 +65,9 @@ export const resolvers = {
 
 			return restaurant.toObject()
 		},
-		updateRestaurant: async (_, { id, name, phone, email, address }) => {
-			let restaurant = await Restaurants.findById(id)
-			if (!restaurant) {
-				throw new Error('Restaurant not found!')
-			}
-
-			await restaurant.updateOne({
-				name,
-				phone,
-				email,
-				address
-			})
-
-			restaurant = await Restaurants.findById(id)
-
-			return restaurant.toObject()
+		updateRestaurant: async (_, data) => {
+			const restaurant = await Restaurants.findByIdAndUpdate(data._id, data.restaurant, { new: true })
+			return restaurant
 		},
 		deleteRestaurant: async (_, { id }) => {
 			const restaurant = await Restaurants.findById(id)

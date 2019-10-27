@@ -17,7 +17,6 @@ const buttonBaseStyles = css`
     padding: ${theme.styles.buttonPaddings};
     font-size: ${theme.styles.buttonFontSize};
     line-height: ${theme.styles.buttonLineHeight};
-    border-radius: ${theme.styles.buttonBorderRadius};
     cursor: pointer;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 `

@@ -7,6 +7,7 @@ const globalStyles = css`
 
 	body {
 		font-family: 'Roboto', sans-serif;
+		-webkit-font-smoothing: antialiased;
 		padding: 0;
 		margin: 0;
 	}

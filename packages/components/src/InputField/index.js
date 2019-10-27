@@ -23,7 +23,7 @@ const inputBaseStyle = css`
 	background-color: ${theme.styles.formBgColor};
 	background-clip: padding-box;
 	border: ${theme.styles.formBorderWidth} solid ${theme.styles.formBorderColor};
-	border-radius: ${theme.styles.formBorderRadius};
+	width: 100%;
 `
 
 const withError = ({ hasError }: PropsType) => {
