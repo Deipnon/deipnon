@@ -47,7 +47,7 @@ export const typeDefs = gql`
 		updateRestaurant(_id: ID!, restaurant: RestaurantInput): Restaurant!
 
 		deleteRestaurant(
-			id: ID!
+			_id: ID!
 		): Boolean!
 
   }
