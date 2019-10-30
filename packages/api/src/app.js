@@ -3,14 +3,26 @@ import { apolloServer } from './graphql'
 import cors from 'cors'
 import helmet from 'helmet'
 import bodyParser from 'body-parser'
+import passport from 'passport'
 import mongoose from 'mongoose'
 
 import { DB_CONNECTION } from './config'
-import Routes from './routes/'
+import jwtStrategy from './strategy/jwt'
+import Routes from './routes'
 
 class App {
 	constructor () {
 		const app = express()
+		passport.use('jwt', jwtStrategy)
+		app.use('/graphql', (req, res, next) => {
+			passport.authenticate('jwt', { session: false }, (_, user, __) => {
+				if (user) {
+					req.user = user
+				}
+
+				next()
+			})(req, res, next)
+		})
 		apolloServer.applyMiddleware({
 			app,
 			path: '/graphql'
