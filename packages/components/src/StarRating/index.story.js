@@ -19,7 +19,7 @@ class RatingSample extends React.Component {
 	}
 
 	handleClick = (e, newValue) => {
-		const newValue = e.currentTarget.value
+		newValue = e.currentTarget.value
 		this.setState({
 			selectedValue: newValue
 		})
