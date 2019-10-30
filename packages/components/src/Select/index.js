@@ -15,7 +15,6 @@ const inputBaseStyle = css`
 	background-color: ${theme.styles.formBgColor};
 	background-clip: padding-box;
 	border: ${theme.styles.formBorderWidth} solid ${theme.styles.formBorderColor};
-	border-radius: ${theme.styles.formBorderRadius};
 	height: ${theme.styles.formHeight};
 `
 const withBlock = ({ block }) => {
