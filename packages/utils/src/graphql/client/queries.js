@@ -2,8 +2,8 @@
 import gql from 'graphql-tag'
 
 export const GET_RESTAURANT = gql`
-	query Restaurant($id: ID!) {
-		restaurant(id: $id) {
+	query Restaurant($_id: ID!) {
+		restaurant(_id: $_id) {
 			_id
 			name
 			email

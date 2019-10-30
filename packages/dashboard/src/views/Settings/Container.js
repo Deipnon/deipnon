@@ -24,7 +24,7 @@ export default (props: PropsType) => {
 
 	// TODO: Move it to the app state
 	const { data } = useQuery(GET_RESTAURANT, { variables: {
-		id: '5dad739a2525263ef51bb407'
+		_id: '5dad739a2525263ef51bb407'
 	}})
 
 	const [ updateRestaurant ] = useMutation(UPDATE_RESTAURANT);

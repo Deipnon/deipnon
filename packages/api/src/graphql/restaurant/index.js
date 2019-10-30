@@ -32,7 +32,7 @@ export const typeDefs = gql`
 	}
 
 	extend type Query {
-		restaurant(id: ID!): Restaurant
+		restaurant(_id: ID!): Restaurant
 		restaurants: [Restaurant]
 	}
 
@@ -55,37 +55,30 @@ export const typeDefs = gql`
 
 export const resolvers = {
 	Mutation: {
-		createRestaurant: async (_, { name, phone, email, address }) => {
-			const restaurant = await Restaurants.create({
-				name,
-				phone,
-				email,
-				address
-			})
+		createRestaurant: (_, data) => {
+			const restaurant = new Restaurants(data)
 
-			return restaurant.toObject()
+			// TODO: Log serverside error
+			return restaurant.save()
 		},
-		updateRestaurant: async (_, data) => {
-			const restaurant = await Restaurants.findByIdAndUpdate(data._id, data.restaurant, { new: true })
-			return restaurant
+		updateRestaurant: (_, data) => {
+			// TODO: Log server side error
+			return Restaurants.findByIdAndUpdate(data._id, data.restaurant, { new: true })
 		},
-		deleteRestaurant: async (_, { id }) => {
-			const restaurant = await Restaurants.findById(id)
-			if (!restaurant) {
-				throw new Error('Restaurant not found!')
-			}
-
-			await restaurant.remove()
-
+		deleteRestaurant: async (_, { _id }) => {
+			// TODO: Log server side error
+			Restaurants.findByIdAndRemove(_id)
 			return true
 		}
 	},
 	Query: {
 		restaurants: () => {
+			// TODO: Log server side error
 			return Restaurants.find({}).exec()
 		},
-		restaurant: async (_, { id }) => {
-			const restaurant = await Restaurants.findById(id).exec()
+		restaurant: async (_, { _id }) => {
+			// TODO: Log server side error
+			const restaurant = await Restaurants.findById(_id).exec()
 			if (!restaurant) {
 				throw new Error('Restaurant not found!')
 			}
