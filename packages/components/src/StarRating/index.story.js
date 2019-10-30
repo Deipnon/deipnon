@@ -13,25 +13,22 @@ class RatingSample extends React.Component {
 
 		this.state = {
 			max: 5,
-			selectedValue: 2
+			selectedValue: 3.4
 
 		}
 	}
 
-	handleClick = (e, newValue) => {
-		newValue = e.currentTarget.value
+	handleClick = (newValue) => {
 		this.setState({
 			selectedValue: newValue
 		})
-		console.log(this.state.selectedValue, "current value");
-		console.log(newValue, "new value")
 	}
 
-    render () {
+	render () {
     	return (
     		<Rating max={this.state.max} value={this.state.selectedValue} onClick={this.handleClick} />
     	)
-    }
+	}
 }
 
 stories.add('default', () => <RatingSample />)

@@ -6,9 +6,8 @@ import { IoIosStar, IoIosStarOutline } from 'react-icons/io'
 import { css } from '@emotion/core'
 import theme from '@deipnon/themes/lib'
 
-
 const rateWrapperStyles = css`
-    
+
 `
 const rateFillIconStyles = css`
     width: 24px;
@@ -43,31 +42,29 @@ const StarDisabledIcon = styled(IoIosStar)`
 `
 
 type PropsType = {
-    max: number,
     disabled: boolean,
+    max: number,
     onClick: (e: SyntheticEvent<HTMLInputElement>) => void,
     value: ?string
 }
 
-
 const Rating = (props: PropsType) => {
-    let element = [];
-    for (let i = 1; i <= props.max; i++) { element.push(props.max[i]) }
-    return (
-        <RateElement {...props}>
-            {
-                element.map((val, i) => <React.Fragment>
-                    {i <= props.value ? (props.disabled ? <StarDisabledIcon /> : <StarFillIcon onClick={props.onClick.bind(this, i)} value={props.value}/>) : <StarEmptyIcon onClick={props.onClick.bind(this, i)} value={props.value}/>}
-                    {console.log(i, "i", props.value, "props value")}
-                </React.Fragment>
-                )
-            }
-        </RateElement>
-    )
+	const element = []
+	for (let i = 1; i <= props.max; i++) { element.push(props.max[i]) }
+	return (
+		<RateElement>
+			{
+				element.map((val, i) => <React.Fragment key={i}>
+					{i < Math.round(props.value) ? (props.disabled ? <StarDisabledIcon /> : <StarFillIcon onClick={props.onClick.bind(null, i + 1)} value={props.value}/>) : <StarEmptyIcon onClick={props.onClick.bind(null, i + 1)} value={props.value}/>}
+				</React.Fragment>
+				)
+			}
+		</RateElement>
+	)
 }
-{/* <RateInput type="radio" checked={props.checked} value={i} onClick={props.onClick}></RateInput>
+{ /* <RateInput type="radio" checked={props.checked} value={i} onClick={props.onClick}></RateInput>
                     <RateLabel>
                         {props.disabled ? <StarDisabledIcon /> : <StarIcon />}
-                    </RateLabel> */}
+                    </RateLabel> */ }
 
 export default Rating
