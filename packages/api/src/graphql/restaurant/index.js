@@ -81,18 +81,16 @@ export const resolvers = {
 		}
 	},
 	Query: {
-		restaurants: async _ => {
-			const restaurants = await Restaurants.find({})
-
-			return restaurants.map(restaurant => restaurant.toObject())
+		restaurants: () => {
+			return Restaurants.find({}).exec()
 		},
 		restaurant: async (_, { id }) => {
-			const restaurant = await Restaurants.findById(id)
+			const restaurant = await Restaurants.findById(id).exec()
 			if (!restaurant) {
 				throw new Error('Restaurant not found!')
 			}
 
-			return restaurant.toObject()
+			return restaurant
 		}
 	}
 }
