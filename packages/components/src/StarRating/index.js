@@ -6,20 +6,10 @@ import { IoIosStar, IoIosStarOutline } from 'react-icons/io'
 import { css } from '@emotion/core'
 import theme from '@deipnon/themes/lib'
 
-const rateFillIconStyles = css`
+const starIconBaseStyle = css`
     width: 24px;
     height: 24px;
     cursor: pointer;
-    color: ${theme.styles.ratingFillColor};
-    :hover{
-        color: ${theme.styles.ratingHoverColor};
-    }
-`
-const rateEmptyIconStyles = css`
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    color: ${theme.styles.ratingEmptyColor};
     :hover{
         color: ${theme.styles.ratingHoverColor};
     }
@@ -27,19 +17,17 @@ const rateEmptyIconStyles = css`
 
 const RateElement = styled('div')()
 const StarFillIcon = styled(IoIosStar)`
-    ${rateFillIconStyles}
+    ${starIconBaseStyle}
+    color: ${theme.styles.ratingFillColor};
 `
 const StarEmptyIcon = styled(IoIosStarOutline)`
-    ${rateEmptyIconStyles}
+    ${starIconBaseStyle}
+    color: ${theme.styles.ratingEmptyColor};
 `
-const StarDisabledIcon = styled(IoIosStar)`
-    width: 24px;
-    height: 24px;
+const StarDisabledIcon = styled(StarFillIcon)`
     color: ${theme.styles.ratingDisabledColor};
 `
-const StarEmptyDisabledIcon = styled(IoIosStarOutline)`
-    width: 24px;
-    height: 24px;
+const StarEmptyDisabledIcon = styled(StarEmptyIcon)`
     color: ${theme.styles.ratingEmptyColor};
 `
 
