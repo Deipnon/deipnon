@@ -26,7 +26,7 @@ class RatingSample extends React.Component {
 
 	render () {
     	return (
-    		<Rating max={this.state.max} value={this.state.selectedValue} onClick={this.handleClick} />
+    		<Rating max={this.state.max} value={this.state.selectedValue} onClick={this.handleClick}/>
     	)
 	}
 }

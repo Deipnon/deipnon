@@ -34,5 +34,11 @@ export default {
 	buttonSecondaryBorderColor: colors.paleSky,
 	buttonSecondaryColor: colors.white,
 
+	// Rating styles
+	ratingFillColor: colors.orangePeel,
+	ratingEmptyColor: colors.silver,
+	ratingDisabledColor: colors.alto,
+	ratingHoverColor: colors.orangePeel,
+
 	...dashboardStyles
 }

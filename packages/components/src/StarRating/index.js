@@ -6,25 +6,22 @@ import { IoIosStar, IoIosStarOutline } from 'react-icons/io'
 import { css } from '@emotion/core'
 import theme from '@deipnon/themes/lib'
 
-const rateWrapperStyles = css`
-
-`
 const rateFillIconStyles = css`
     width: 24px;
     height: 24px;
-    color: #ff9800;
     cursor: pointer;
+    color: ${theme.styles.ratingFillColor};
     :hover{
-        color: #ff9800;
+        color: ${theme.styles.ratingHoverColor};
     }
 `
 const rateEmptyIconStyles = css`
     width: 24px;
     height: 24px;
-    color: #c7c7c7;
     cursor: pointer;
+    color: ${theme.styles.ratingEmptyColor};
     :hover{
-        color: #ff9800;
+        color: ${theme.styles.ratingHoverColor};
     }
 `
 
@@ -38,7 +35,12 @@ const StarEmptyIcon = styled(IoIosStarOutline)`
 const StarDisabledIcon = styled(IoIosStar)`
     width: 24px;
     height: 24px;
-    color: #e0e0e0;
+    color: ${theme.styles.ratingDisabledColor};
+`
+const StarEmptyDisabledIcon = styled(IoIosStarOutline)`
+    width: 24px;
+    height: 24px;
+    color: ${theme.styles.ratingEmptyColor};
 `
 
 type PropsType = {
@@ -49,22 +51,20 @@ type PropsType = {
 }
 
 const Rating = (props: PropsType) => {
-	const element = []
-	for (let i = 1; i <= props.max; i++) { element.push(props.max[i]) }
-	return (
-		<RateElement>
-			{
-				element.map((val, i) => <React.Fragment key={i}>
-					{i < Math.round(props.value) ? (props.disabled ? <StarDisabledIcon /> : <StarFillIcon onClick={props.onClick.bind(null, i + 1)} value={props.value}/>) : <StarEmptyIcon onClick={props.onClick.bind(null, i + 1)} value={props.value}/>}
-				</React.Fragment>
-				)
-			}
-		</RateElement>
-	)
+    const element = []
+    for (let i = 1; i <= props.max; i++) { element.push(props.max[i]) }
+    return (
+        <RateElement>
+            {
+                element.map((val, i) => <React.Fragment key={i}>
+                    {i < Math.round(props.value) ? (props.disabled ? <StarDisabledIcon /> : <StarFillIcon onClick={props.onClick.bind(null, i + 1)} value={props.value} />) :
+                        (props.disabled ? <StarEmptyDisabledIcon onClick="return false" value={props.value} />
+                            : <StarEmptyIcon onClick={props.onClick.bind(null, i + 1)} value={props.value} />)}
+                </React.Fragment>
+                )
+            }
+        </RateElement>
+    )
 }
-{ /* <RateInput type="radio" checked={props.checked} value={i} onClick={props.onClick}></RateInput>
-                    <RateLabel>
-                        {props.disabled ? <StarDisabledIcon /> : <StarIcon />}
-                    </RateLabel> */ }
 
 export default Rating
