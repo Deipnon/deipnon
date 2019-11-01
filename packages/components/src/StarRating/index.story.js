@@ -26,7 +26,14 @@ class RatingSample extends React.Component {
 
 	render () {
     	return (
-    		<Rating max={this.state.max} value={this.state.selectedValue} onClick={this.handleClick}/>
+    		<React.Fragment>
+				<div>
+					<Rating max={this.state.max} value={this.state.selectedValue} onClick={this.handleClick} />
+				</div>
+				<div>
+					<Rating max={this.state.max} value={this.state.selectedValue} onClick={this.handleClick} disabled/>
+				</div>
+			</React.Fragment>
     	)
 	}
 }

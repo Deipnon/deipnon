@@ -6,53 +6,80 @@ import { IoIosStar, IoIosStarOutline } from 'react-icons/io'
 import { css } from '@emotion/core'
 import theme from '@deipnon/themes/lib'
 
-const starIconBaseStyle = css`
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    :hover{
+const withHover = css`
+	:hover{
         color: ${theme.styles.ratingHoverColor};
     }
 `
 
-const RateElement = styled('div')()
+const starIconBaseStyle = (color) => css`
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	color: ${color};
+`
+
 const StarFillIcon = styled(IoIosStar)`
-    ${starIconBaseStyle}
-    color: ${theme.styles.ratingFillColor};
+	${starIconBaseStyle(theme.styles.ratingFillColor)}
+	${withHover}
 `
 const StarEmptyIcon = styled(IoIosStarOutline)`
-    ${starIconBaseStyle}
-    color: ${theme.styles.ratingEmptyColor};
+	${starIconBaseStyle(theme.styles.ratingEmptyColor)}
+	${withHover}
 `
-const StarDisabledIcon = styled(StarFillIcon)`
-    color: ${theme.styles.ratingDisabledColor};
+const StarDisabledIcon = styled(IoIosStar)`
+	${starIconBaseStyle(theme.styles.ratingDisabledColor)}
 `
-const StarEmptyDisabledIcon = styled(StarEmptyIcon)`
-    color: ${theme.styles.ratingEmptyColor};
+const StarEmptyDisabledIcon = styled(IoIosStarOutline)`
+	${starIconBaseStyle(theme.styles.ratingEmptyColor)}
 `
 
 type PropsType = {
     disabled: boolean,
     max: number,
-    onClick: (e: SyntheticEvent<HTMLInputElement>) => void,
-    value: ?string
+    onClick: (number) => void,
+    value: number
+}
+
+const StartIcon = (props) => {
+	const { disabled, filled } = props
+	const newProps = {
+		onClick: props.onClick,
+		id: props.id
+	}
+
+	if (disabled && filled) {
+		return <StarDisabledIcon {...newProps} />
+	} else if (disabled && !filled) {
+		return <StarEmptyDisabledIcon {...newProps} />
+	} else if (!disabled && filled) {
+		return <StarFillIcon {...newProps} />
+	} else if (!disabled && !filled) {
+		return <StarEmptyIcon {...newProps} />
+	} else {
+		return null
+	}
 }
 
 const Rating = (props: PropsType) => {
-    const element = []
-    for (let i = 1; i <= props.max; i++) { element.push(props.max[i]) }
-    return (
-        <RateElement>
-            {
-                element.map((val, i) => <React.Fragment key={i}>
-                    {i < Math.round(props.value) ? (props.disabled ? <StarDisabledIcon /> : <StarFillIcon onClick={props.onClick.bind(null, i + 1)} value={props.value} />) :
-                        (props.disabled ? <StarEmptyDisabledIcon onClick="return false" value={props.value} />
-                            : <StarEmptyIcon onClick={props.onClick.bind(null, i + 1)} value={props.value} />)}
-                </React.Fragment>
-                )
-            }
-        </RateElement>
-    )
+	const element = new Array(props.max).fill(null)
+
+	const handleClick = (e: SyntheticEvent<HTMLElement>) => {
+		if (!props.disabled) {
+			// $FlowFixMe
+			props.onClick(e.currentTarget.id)
+		}
+	}
+
+	return (
+		<div>
+			{
+				element.map((val, i) =>
+					<StartIcon {...props} filled={i < Math.round(props.value)} onClick={handleClick} key={i} id={i + 1}/>
+				)
+			}
+		</div>
+	)
 }
 
 export default Rating
