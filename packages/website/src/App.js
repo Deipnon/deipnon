@@ -8,7 +8,7 @@ function App() {
     <div className="App">
 			<GridInitializer />
       <Button color="primary" type="submit">
-      My Header
+        My Header
       </Button>
     </div>
   );
