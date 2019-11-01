@@ -1,6 +1,8 @@
 // @flow
-const deneme = (parameter: string) => console.log(`Test: ${parameter}`)
+import { GET_RESTAURANT } from './graphql/client/queries'
 
 export default {
-	deneme
+	clientQueries: {
+		GET_RESTAURANT
+	}
 }
