@@ -3,7 +3,7 @@ import { Schema, model } from 'mongoose'
 const CredentialsSchema = new Schema({
 	password: String,
 	lastLogin: { required: true, type: Number }
-})
+}, { _id: false })
 
 const AddressSchema = new Schema({
 	friendlyName: { required: true, type: String }, // Ev adresi, ofis adresi gibi
@@ -13,7 +13,7 @@ const AddressSchema = new Schema({
 	state: { required: true, type: String },
 	phone: { required: true, type: String },
 	isDefault: { required: true, type: Boolean }
-})
+}, { _id: false })
 
 /**
  * Example User

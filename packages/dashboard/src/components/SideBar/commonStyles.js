@@ -36,7 +36,7 @@ export const Nav = styled('ul')`
 `
 
 export const withActiveState = ({ active }: $FlowFixMe) => active && css`
-	color: ${theme.styles.sideBarLinkColorActive};
+	font-weight: 700;
 `
 
 export const NavItem = styled('li')`
@@ -54,7 +54,7 @@ export const NavItem = styled('li')`
 	}
 
 	&:hover {
-		color: ${theme.styles.sideBarLinkColorActive};;
+		font-weight: 500;
 	}
 
 	&:first-child {

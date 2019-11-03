@@ -5,19 +5,19 @@ const AddressSchema = new Schema({
 	zipCode: { required: true, type: String },
 	city: { required: true, type: String },
 	state: { required: true, type: String }
-})
+}, { _id: false })
 
 const HourSchema = new Schema({
 	hh: { required: true, type: Number },
 	mm: { required: true, type: Number }
-})
+}, { _id: false })
 
 const WorkingHoursSchema = new Schema({
 	[Number]: {
 		opensAt: HourSchema,
 		closesAt: HourSchema
 	}
-})
+}, { _id: false })
 
 /**
  * const restaurant = {
