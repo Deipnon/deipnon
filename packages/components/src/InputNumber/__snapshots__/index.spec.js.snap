@@ -2,13 +2,12 @@
 
 exports[`InputNumber renders correctly 1`] = `
 <div
-  className="css-3hqof7"
+  className="css-veo1jb"
 >
   <svg
-    className="css-jiif2q"
+    className="css-1mvjc7w"
     fill="currentColor"
     height="1em"
-    onClick={[Function]}
     stroke="currentColor"
     strokeWidth="0"
     style={
@@ -25,15 +24,12 @@ exports[`InputNumber renders correctly 1`] = `
     />
   </svg>
   <span
-    className="css-6wxaff"
-  >
-    0
-  </span>
+    className="css-wu1nnt"
+  />
   <svg
-    className="css-jiif2q"
+    className="css-1mvjc7w"
     fill="currentColor"
     height="1em"
-    onClick={[Function]}
     stroke="currentColor"
     strokeWidth="0"
     style={
