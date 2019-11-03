@@ -31,6 +31,7 @@
 		"react/prop-types": [0],
 		"flowtype/delimiter-dangle": [2],
 		"flowtype/type-id-match": [2, "^([A-Z][a-z0-9]*)+Type$"],
+		"flowtype/no-types-missing-file-annotation": 0,
 		"flowtype/sort-keys": [
 			2,
 			"asc",

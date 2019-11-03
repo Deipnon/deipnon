@@ -21,6 +21,8 @@
     "@emotion/styled": "^10.0.17",
     "@storybook/addon-knobs": "^5.2.1",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "ramda": "^0.26.1",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",

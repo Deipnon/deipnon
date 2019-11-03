@@ -33,6 +33,7 @@ export default {
 	buttonSecondaryBg: colors.paleSky,
 	buttonSecondaryBorderColor: colors.paleSky,
 	buttonSecondaryColor: colors.white,
-
+	favoriteButtonColorEmpty: colors.darkGray,
+	favoriteButtonColor: colors.red,
 	...dashboardStyles
 }
