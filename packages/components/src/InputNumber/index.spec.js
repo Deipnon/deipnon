@@ -6,7 +6,7 @@ import InputNumber from '.'
 
 describe('InputNumber', () => {
   test('renders correctly', () => {
-    const test = renderer.create(<InputNumber/>).toJSON()
+    const test = renderer.create(<InputNumber>).toJSON()
     expect(test).toMatchSnapshot()
   })
 })

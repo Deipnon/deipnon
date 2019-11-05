@@ -11,30 +11,32 @@ class InputNumberSample extends React.Component {
     constructor (props) {
 		super(props)
 		this.state = {
-            number: 0,
+            value: 1,
             min: 0,
             max: 10,
 		}
 	}
 
-    handleClickPlusButton = () => {
-        const incrementNumber = this.state.number + 1
-        if (this.state.number !== this.state.max) {
-            return onValueChange(incrementNumber)
-        }
-       }
-
-       handleClickMinusButton = () => {
-        const decreaseNumber = this.state.number - 1
-        if (this.state.number !== this.state.min) {
-          return onValueChange(decreaseNumber)
-        }
-       }
+    handleOnMinusClick = (e) => {
+        this.setState({
+            value:e
+        })
+    }
+    handleOnPlusClick = (e) => {
+        this.setState({
+            value:e
+        })
+    }
 
     render () {
         return (
-                <InputNumber>
-                </InputNumber>
+            <InputNumber
+                onMinusChange={this.handleOnMinusClick}
+                onPlusChange={this.handleOnPlusClick}
+                value={this.state.value}
+                min={this.state.min}
+                max={this.state.max}
+            />
         )
     }
 }
