@@ -8,37 +8,34 @@ const stories = storiesOf('InputNumber', module)
 stories.addDecorator(withKnobs)
 
 class InputNumberSample extends React.Component {
-    constructor (props) {
+	constructor (props) {
 		super(props)
 		this.state = {
-            value: 1,
-            min: 0,
-            max: 10,
+			value: 1,
+			min: 0,
+			max: 10
 		}
 	}
 
-    handleOnMinusClick = (e) => {
-        this.setState({
-            value:e
-        })
-    }
-    handleOnPlusClick = (e) => {
-        this.setState({
-            value:e
-        })
-    }
+handleOnMinusClick = (value) => {
+	this.setState({ value })
+}
 
-    render () {
-        return (
-            <InputNumber
-                onMinusChange={this.handleOnMinusClick}
-                onPlusChange={this.handleOnPlusClick}
-                value={this.state.value}
-                min={this.state.min}
-                max={this.state.max}
-            />
-        )
-    }
+handleOnPlusClick = (value) => {
+	this.setState({ value })
+}
+
+render () {
+	return (
+		<InputNumber
+			onMinusChange={this.handleOnMinusClick}
+			onPlusChange={this.handleOnPlusClick}
+			value={this.state.value}
+			min={this.state.min}
+			max={this.state.max}
+		/>
+	)
+}
 }
 
 stories.add('default', () => <InputNumberSample />)

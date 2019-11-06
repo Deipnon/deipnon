@@ -36,33 +36,33 @@ const InputNumberButtonElementRemove = styled(IoIosRemove)(inputNumberLabelStyle
 type PropsType = {
 	max: number,
 	min: number,
-	onPlusChange: (e: number) => void,
-	onMinusChange: (e: number) => void,
+	onMinusChange: (e: number) => number,
+	onPlusChange: (e: number) => number,
 	value: number
 }
 
-const handleClickPlusButton = (value,max,onPlusChange: PropsType) => {
+const handleClickPlusButton = (props: PropsType) => {
+	const { value, max, onPlusChange } = props
 	const incrementNumber = value + 1
 	if (value !== max) {
 		return onPlusChange(incrementNumber)
 	}
-   }
+}
 
-const handleClickMinusButton = (value,min,onMinusChange: PropsType) => {
+const handleClickMinusButton = (props: PropsType) => {
+	const { value, min, onMinusChange } = props
 	const decreaseNumber = value - 1
 	if (value !== min) {
-	  return onMinusChange(decreaseNumber)
+		return onMinusChange(decreaseNumber)
 	}
-   }
+}
 
 const InputNumber = (props: PropsType) => {
-	const {min,max,value,onPlusChange,onMinusChange} = props
-
 	return (
 		<InputNumberForm>
-			<InputNumberButtonElementRemove onClick={()=>handleClickMinusButton(value,min,onMinusChange)}/>
+			<InputNumberButtonElementRemove onClick={() => handleClickMinusButton(props)}/>
 			<InputNumberSpanElement>{props.value}</InputNumberSpanElement>
-			<InputNumberButtonElementAdd onClick={()=>handleClickPlusButton(value,max,onPlusChange)}/>
+			<InputNumberButtonElementAdd onClick={() => handleClickPlusButton(props)}/>
 		</InputNumberForm>
 	)
 }
