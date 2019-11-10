@@ -6,7 +6,7 @@ import Radio from '.'
 
 describe('Radio', () => {
 	test('renders correctly', () => {
-		const tree = renderer.create(<Radio checked="false" onChange={() => {}} value="test" name="test">Radio Button</Radio>).toJSON()
+		const tree = renderer.create(<Radio checked="false" value="test" name="test">Radio Button</Radio>).toJSON()
 		expect(tree).toMatchSnapshot()
 	})
 })

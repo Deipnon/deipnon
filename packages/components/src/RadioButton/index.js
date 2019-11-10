@@ -3,7 +3,6 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import theme from '@deipnon/themes/lib'
 
 const radioInputStyle = css`
 	box-sizing: border-box;
