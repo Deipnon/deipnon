@@ -2,7 +2,7 @@
 
 exports[`InputField renders correctly 1`] = `
 <input
-  className="css-tjurys"
+  className="css-1iwhp1f"
   placeholder="test"
   type="text"
 />
