@@ -10,10 +10,6 @@ stories.addDecorator(withKnobs)
 class InfoButtonSample extends React.Component {
     constructor (props) {
         super(props)
-
-        this.state = {
-            propName: 'Default'
-        }
     }
 
     render () {
