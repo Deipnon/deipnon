@@ -6,7 +6,6 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
 type PropsType = {|
-    propName: string,
     onClick: (e: SyntheticEvent<HTMLSelectElement>) => void
 |}
 
