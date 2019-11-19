@@ -5,8 +5,8 @@ import 'jest-emotion'
 import InputNumber from '.'
 
 describe('InputNumber', () => {
-  test('renders correctly', () => {
-    const test = renderer.create(<InputNumber>).toJSON()
-    expect(test).toMatchSnapshot()
-  })
+	test('renders correctly', () => {
+		const test = renderer.create(<InputNumber onChange={()=>{}} min={0} max={5} value={1}/>).toJSON()
+		expect(test).toMatchSnapshot();
+	})
 })

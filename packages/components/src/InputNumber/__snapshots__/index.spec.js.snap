@@ -8,6 +8,7 @@ exports[`InputNumber renders correctly 1`] = `
     className="css-1mvjc7w"
     fill="currentColor"
     height="1em"
+    onClick={[Function]}
     stroke="currentColor"
     strokeWidth="0"
     style={
@@ -25,11 +26,14 @@ exports[`InputNumber renders correctly 1`] = `
   </svg>
   <span
     className="css-kuosva"
-  />
+  >
+    1
+  </span>
   <svg
     className="css-1mvjc7w"
     fill="currentColor"
     height="1em"
+    onClick={[Function]}
     stroke="currentColor"
     strokeWidth="0"
     style={
