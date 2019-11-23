@@ -2,9 +2,10 @@
 
 exports[`InfoButton Info 1`] = `
 <svg
-  className="css-d5w927"
+  className="css-koflzb"
   fill="currentColor"
   height="1em"
+  onClick={[Function]}
   stroke="currentColor"
   strokeWidth="0"
   style={

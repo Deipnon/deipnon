@@ -9,11 +9,8 @@ type PropsType = {|
     onClick: (e: SyntheticEvent<HTMLSelectElement>) => void
 |}
 
-const InfoButtonStyle = css`
-    cursor: pointer;
+const InfoButtonElement = styled(IoIosInformation)`
+cursor:pointer;
 `
-const InfoButtonElement = styled(IoIosInformation)(InfoButtonStyle)
 
-const InfoButton = (props: PropsType) => <InfoButtonElement {...props} />
-
-export default InfoButton
+export default InfoButtonElement
