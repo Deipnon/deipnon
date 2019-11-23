@@ -8,9 +8,13 @@ const stories = storiesOf('InfoButton', module)
 stories.addDecorator(withKnobs)
 
 class InfoButtonSample extends React.Component {
+
+    handleClickButton = () => {
+    }
+
     render () {
         return (
-            <InfoButton onClick={this.someClickFunction} />
+            <InfoButton onClick={this.handleClickButton} />
         )
     }
 }
