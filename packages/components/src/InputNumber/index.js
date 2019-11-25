@@ -40,8 +40,7 @@ type PropsType = {
 	value: number
 }
 
-const InputNumber = (props: PropsType) => {
-	const { value, min, max, onChange } = props
+const InputNumber = ({ value, min, max, onChange }: PropsType) => {
 	const handleClickMinusButton = useCallback(() => {
 		const decreaseNumber = value - 1
 		if (value !== min) {
