@@ -1,12 +1,12 @@
 // @flow
 
-import React from 'react'
+import React, { useCallback } from 'react'
 import { IoIosAdd, IoIosRemove } from 'react-icons/io'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import theme from '@deipnon/themes/lib'
 
-const inputNumberSpanStyle = css`
+const inputNumberWrapperStyle = css`
  color: ${theme.colors.azureRadiance};
  user-select: none;
 `
@@ -29,9 +29,9 @@ const inputNumberFormStyle = css`
 `
 
 const InputNumberForm = styled('div')(inputNumberFormStyle)
-const InputNumberSpanElement = styled('span')(inputNumberSpanStyle)
-const InputNumberButtonElementAdd = styled(IoIosAdd)(inputNumberLabelStyle)
-const InputNumberButtonElementRemove = styled(IoIosRemove)(inputNumberLabelStyle)
+const InputNumberWrapperElement = styled('span')(inputNumberWrapperStyle)
+const InputNumberButtonPlusButton = styled(IoIosAdd)(inputNumberLabelStyle)
+const InputNumberButtonMinusButton = styled(IoIosRemove)(inputNumberLabelStyle)
 
 type PropsType = {
 	max: number,
@@ -42,23 +42,23 @@ type PropsType = {
 
 const InputNumber = (props: PropsType) => {
 	const { value, min, max, onChange } = props
-	const handleClickMinusButton = React.useCallback(() => {
+	const handleClickMinusButton = useCallback(() => {
 		const decreaseNumber = value - 1
 		if (value !== min) {
 			return onChange(decreaseNumber)
 		}
-	}, [props.value])
-	const handleClickPlusButton = React.useCallback(() => {
+	}, [value])
+	const handleClickPlusButton = useCallback(() => {
 		const incrementNumber = value + 1
 		if (value !== max) {
 			return onChange(incrementNumber)
 		}
-	}, [props.value])
+	}, [value])
 	return (
 		<InputNumberForm>
-			<InputNumberButtonElementRemove onClick={handleClickMinusButton}/>
-			<InputNumberSpanElement>{props.value}</InputNumberSpanElement>
-			<InputNumberButtonElementAdd onClick={handleClickPlusButton}/>
+			<InputNumberButtonMinusButton onClick={handleClickMinusButton}/>
+			<InputNumberWrapperElement>{value}</InputNumberWrapperElement>
+			<InputNumberButtonPlusButton onClick={handleClickPlusButton}/>
 		</InputNumberForm>
 	)
 }
