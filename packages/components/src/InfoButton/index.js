@@ -10,7 +10,7 @@ type PropsType = {|
 |}
 
 const InfoButtonElement = styled(IoIosInformation)`
-cursor:pointer;
+	cursor:pointer;
 `
 
 export default InfoButtonElement
