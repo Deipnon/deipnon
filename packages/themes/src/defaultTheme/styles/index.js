@@ -38,6 +38,10 @@ export default {
 	ratingDisabledColor: colors.alto,
 	ratingHoverColor: colors.orangePeel,
 
+	//AvgDeliveryTime
+	AvgDeliveryTimeColorOpen:  colors.orangePeel,
+	AvgDeliveryTimeColorClose: colors.red,
+
 	...dashboardStyles,
 	...commonStyles,
 	...dashboardStyles,
