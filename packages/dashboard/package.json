@@ -9,6 +9,7 @@
     "@emotion/core": "^10.0.21",
     "@emotion/styled": "^10.0.17",
     "apollo-boost": "^0.4.4",
+    "emotion-theming": "^10.0.19",
     "graphql": "^14.5.8",
     "ramda": "^0.26.1",
     "react": "^16.10.1",
