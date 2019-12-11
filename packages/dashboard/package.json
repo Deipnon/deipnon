@@ -3,11 +3,10 @@
   "version": "0.0.1",
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
-    "@deipnon/components": "^0.0.1",
-    "@deipnon/themes": "^0.0.1",
     "@deipnon/utils": "^0.0.1",
     "@emotion/core": "^10.0.21",
     "@emotion/styled": "^10.0.17",
+    "@sumup/circuit-ui": "^1.5.0",
     "apollo-boost": "^0.4.4",
     "emotion-theming": "^10.0.19",
     "graphql": "^14.5.8",
