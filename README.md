@@ -80,23 +80,23 @@ Components paketinde yer alan testleri çalıştırır.
 
 Components paketinde daha önceden oluşturulmuş snapshotları günceller.
 
-#### dashboard:addpackage
+#### restaurant:addpackage
 
-Herhangi bir npm paketini (örneğin ramda) dashboard paketine eklemek için gerekli komut. Doğrudan packages/dashboard dizini altına gidip standard ekleme işlemi de yapabilirsiniz yada aşağıdaki komutu kullanabilirsiniz.
+Herhangi bir npm paketini (örneğin ramda) restaurant paketine eklemek için gerekli komut. Doğrudan packages/restaurant dizini altına gidip standard ekleme işlemi de yapabilirsiniz yada aşağıdaki komutu kullanabilirsiniz.
 
 ```
-npm run dashboard:addpackage npm_paket_adı
+npm run restaurant:addpackage npm_paket_adı
 ```
 
 yada
 
 ```
-yarn dashboard:addpackage npm_paket_adı
+yarn restaurant:addpackage npm_paket_adı
 ```
 
-#### dashboard:dev
+#### restaurant:dev
 
-Sadece dashboard paketini ve onun bağımlı olduğu paketleri development modunda çalıştırır. API de bu işlemlere dahil.
+Sadece restaurant paketini ve onun bağımlı olduğu paketleri development modunda çalıştırır. API de bu işlemlere dahil.
 
 #### eslint
 

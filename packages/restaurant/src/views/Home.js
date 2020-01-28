@@ -1,10 +1,10 @@
 // @flow
 import * as React from 'react'
 
-const Dashboard = () => {
+const Home = () => {
 	return (<React.Fragment>
-		Dashboard
+		Home Page
 	</React.Fragment>)
 }
 
-export default Dashboard
+export default Home

@@ -1,5 +1,5 @@
 {
-  "name": "@deipnon/dashboard",
+  "name": "@deipnon/restaurant",
   "version": "0.0.1",
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",

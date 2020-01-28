@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { Switch, Route } from "react-router-dom";
 
-import Dashboard from './views/Dashboard'
+import Home from './views/Home'
 import Orders from './views/Orders'
 import Users from './views/Users'
 import Menu from './views/Menu'
@@ -10,7 +10,7 @@ import Settings from './views/Settings'
 
 const Routes = () => (<Switch>
 	<Route exact path="/">
-		<Dashboard />
+		<Home />
 	</Route>
 	<Route path="/orders">
 		<Orders />
