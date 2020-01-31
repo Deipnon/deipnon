@@ -6,7 +6,7 @@ import Home from './views/Home'
 import Orders from './views/Orders'
 import Users from './views/Users'
 import Menu from './views/Menu'
-import Settings from './views/Settings'
+// import Settings from './views/Settings'
 
 const Routes = () => (<Switch>
 	<Route exact path="/">
@@ -21,9 +21,9 @@ const Routes = () => (<Switch>
 	<Route path="/menu">
 		<Menu />
 	</Route>
-	<Route path="/settings">
+	{/* <Route path="/settings">
 		<Settings />
-	</Route>
+	</Route> */}
 </Switch>)
 
 export default Routes

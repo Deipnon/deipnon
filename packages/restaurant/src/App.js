@@ -2,6 +2,8 @@ import React from 'react'
 import { BrowserRouter as Router } from "react-router-dom"
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from '@apollo/react-hooks'
+import { ThemeProvider } from 'emotion-theming';
+import { theme, Button } from '@sumup/circuit-ui';
 
 import Layout  from './views/Layout'
 import Routes from './Routes'
@@ -14,14 +16,19 @@ const client = new ApolloClient({
 function App() {
  return (
 	<ApolloProvider client={client}>
-		<Router>
-			<Layout>
-				<GlobalStyles />
-				<Routes />
-			</Layout>
-		</Router>
+		<ThemeProvider theme={theme.circuit}>
+		<Button primary>Click me</Button>
+			<Router>
+				<Layout>
+					<Button primary>Click me</Button>
+					<GlobalStyles />
+					<Routes />
+				</Layout>
+			</Router>
+		</ThemeProvider>
 	</ApolloProvider>
 	)
 }
 
-export default App;
+
+export default App
