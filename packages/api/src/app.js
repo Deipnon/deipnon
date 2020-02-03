@@ -30,7 +30,7 @@ class App {
 		this.app = app
 		this.config()
 		this.app.use(Routes)
-		this.mongoSetup()
+		// this.mongoSetup()
 	}
 
 	config () {
