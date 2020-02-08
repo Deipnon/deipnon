@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react'
-import { withTheme } from 'emotion-theming'
 import { NavLink } from 'react-router-dom'
 import { FaCashRegister, FaMortarPestle, FaReadme, FaReceipt, FaCog } from 'react-icons/fa'
 
@@ -35,7 +34,7 @@ const SideMenu = (props) => {
 				</NavLink>
 			</NavItem>
 			<NavItem>
-				<NavLink to="/settings" >
+				<NavLink to="/settings/restaurant" >
 					<FaCog size={30} />
 					Settings
 				</NavLink>
@@ -44,4 +43,4 @@ const SideMenu = (props) => {
 	</Container>)
 }
 
-export default withTheme(SideMenu)
+export default SideMenu

@@ -1,33 +1,27 @@
-import React from 'react'
-import { BrowserRouter as Router } from "react-router-dom"
-import ApolloClient from 'apollo-boost'
-import { ApolloProvider } from '@apollo/react-hooks'
-import { ThemeProvider } from 'emotion-theming';
-import { theme, Button } from '@sumup/circuit-ui';
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { Button } from 'antd'
 
-import Layout  from './views/Layout'
-import Routes from './Routes'
-import GlobalStyles from './GlobalStyles'
+import Layout from './views/Layout';
+import Routes from './Routes';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3000/graphql',
+	uri: 'http://localhost:3000/graphql'
 });
 
 function App() {
- return (
-	<ApolloProvider client={client}>
-		<ThemeProvider theme={theme.circuit}>
+	return (
+		<ApolloProvider client={client}>
 			<Router>
 				<Layout>
-					<Button primary>Click me</Button>
-					<GlobalStyles />
+					<Button>DENEME</Button>
 					<Routes />
 				</Layout>
 			</Router>
-		</ThemeProvider>
-	</ApolloProvider>
-	)
+		</ApolloProvider>
+	);
 }
 
-
-export default App
+export default App;
