@@ -2,33 +2,33 @@ import { gql } from 'apollo-server-express'
 import Restaurants from '../../models/Restaurants'
 
 export const typeDefs = gql`
-	type Address {
-		addressLine: String!
-		zipCode: String!
-		city: String!
-		state: String!
-	}
 
 	type Restaurant {
 		_id: ID!
 		name: String!
-		phone: String!
-		email: String!
-		address: Address!
+		phone: String
+		email: String
+		has_eat_in_option: Boolean
+		has_pickup_option: Boolean
+		has_delivery_option: Boolean
+		zip_code: String
+		address_line: String
+		city: String
+		state: String
 	}
 
-	input AddressInput {
-		addressLine: String!
-		zipCode: String!
-		city: String!
-		state: String!
-	}
 
 	input RestaurantInput {
 		name: String!
-		phone: String!
-		email: String!
-		address: AddressInput
+		phone: String
+		email: String
+		has_eat_in_option: Boolean
+		has_pickup_option: Boolean
+		has_delivery_option: Boolean
+		zip_code: String
+		address_line: String
+		city: String
+		state: String
 	}
 
 	extend type Query {
@@ -40,8 +40,14 @@ export const typeDefs = gql`
 		createRestaurant(
 			name: String!
 			phone: String!
-			email: String!
-			address: AddressInput!
+			email: String
+			has_eat_in_option: Boolean
+			has_pickup_option: Boolean
+			has_delivery_option: Boolean
+			zip_code: String
+			address_line: String
+			city: String
+			state: String
 		): Restaurant!
 
 		updateRestaurant(_id: ID!, restaurant: RestaurantInput): Restaurant!
@@ -63,6 +69,7 @@ export const resolvers = {
 		},
 		updateRestaurant: (_, data) => {
 			// TODO: Log server side error
+			console.log('data', data)
 			return Restaurants.findByIdAndUpdate(data._id, data.restaurant, { new: true })
 		},
 		deleteRestaurant: async (_, { _id }) => {
