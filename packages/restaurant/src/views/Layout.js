@@ -1,32 +1,32 @@
 // @flow
-import * as React from 'react'
-import styled from '@emotion/styled'
+import * as React from 'react';
+import { Layout } from 'antd';
 
 import SideMenu from '../components/SideMenu'
 import Header from '../components/Header'
 
-const Container = styled('div')`
-	display:flex;
-	background-color: #FAFBFC;
-	height: 100vh;
-`
+// const Layout = ({ children }: $FlowFixMe) => (<React.Fragment>
+// 	<Container>
+// 		<SideMenu />
+// 		<div style={{ flex: '1'}}>
+// 			<Header />
+// 			<MainContent>
+// 				{children}
+// 			</MainContent>
+// 		</div>
+// 	</Container>
+// </React.Fragment>)
 
-const MainContent = styled('div')`
-	flex: 1;
-	padding: 16px;
-`
+// export default Layout
 
-
-const Layout = ({ children }: $FlowFixMe) => (<React.Fragment>
-	<Container>
-		<SideMenu />
-		<div style={{ flex: '1'}}>
+export default ({ children }) => (
+	<Layout style={{ height: '100vh' }}>
+			<SideMenu/>
+		<Layout>
 			<Header />
-			<MainContent>
+			<Layout.Content style={{padding: '16px'}}>
 				{children}
-			</MainContent>
-		</div>
-	</Container>
-</React.Fragment>)
-
-export default Layout
+			</Layout.Content>
+		</Layout>
+	</Layout>
+);

@@ -1,33 +1,31 @@
 // @flow
 import React from 'react'
-import { Switch, Route, useParams , withRouter} from "react-router-dom";
+import { Tabs, Card } from 'antd'
 
 import Restaurant from './Restaurant'
 import WorkingHours from './WorkingHours'
 import DeliverySettings from './DeliverySettings'
 import CarryoutSettings from './CarryoutSettings'
 
-const tabs = [
-	{key: 'restaurant', title: "Restaurant"},
-	{key: 'working-hours', title: "Working Hours"},
-	{key: 'delivery-settings', title: "Delivery Settings"},
-	{key: 'carryout-settings', title: "Carryout Settings"}
-]
+const { TabPane } = Tabs
 
-const Settings = ({ history }) => {
-
-	let { id } = useParams();
-
-	return (<>
-		
-		<Switch>
-			<Route path="/settings/restaurant" component={Restaurant} />	
-			<Route path="/settings/working-hours" component={WorkingHours} />
-			<Route path="/settings/delivery-settings" component={DeliverySettings} />
-			<Route path="/settings/carryout-settings" component={CarryoutSettings} />
-		</Switch>
-		
-	</>)
+const Settings = () => {
+	return (<Card style={{ height: '100%'}}>
+		<Tabs defaultActiveKey="1" size="large">
+			<TabPane tab="Restaurant" key="1">
+				<Restaurant />
+			</TabPane>
+			<TabPane tab="Working Hours" key="2">
+				<WorkingHours />
+			</TabPane>
+			<TabPane tab="Delivery Settings" key="3">
+				<DeliverySettings />
+			</TabPane>
+			<TabPane tab="Carryout Settings" key="4">
+				<CarryoutSettings />
+			</TabPane>
+		</Tabs>		
+	</Card>)
 }
 
-export default withRouter(Settings)
+export default Settings

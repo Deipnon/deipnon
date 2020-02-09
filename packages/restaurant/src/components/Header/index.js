@@ -1,13 +1,9 @@
 // @flow
-import React from 'react'
+import React from 'react';
+import { withTheme } from 'emotion-theming';
 
-import { Container } from './styled'
+import { Container } from './styled';
 
-const Header = () => {
+const Header = () => <Container>Header</Container>;
 
-    return <Container>
-        Header
-    </Container>
-}
-
-export default Header
+export default withTheme(Header);

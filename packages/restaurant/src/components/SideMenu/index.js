@@ -2,12 +2,13 @@
 
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { withTheme } from 'emotion-theming'
 import { FaCashRegister, FaMortarPestle, FaReadme, FaReceipt, FaCog } from 'react-icons/fa'
 
-import { Container, Nav, NavItem } from './styled'
+import { Nav, NavItem, Container } from './styled'
 
 const SideMenu = (props) => {
-	return (<Container>
+	return (<Container collapsed={true}>
 		<Nav>
 			<NavItem>
 				<NavLink exact to="/" >
@@ -43,4 +44,4 @@ const SideMenu = (props) => {
 	</Container>)
 }
 
-export default SideMenu
+export default withTheme(SideMenu)
