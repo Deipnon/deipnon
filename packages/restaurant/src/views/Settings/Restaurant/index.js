@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks'
+import { message } from 'antd';
 
 import RestaurantInfoForm from '../../../components/Forms/RestaurantInfo'
 
@@ -14,7 +15,8 @@ const Restaurant = (props) => {
 	}})
 
 	const [ updateRestaurant ] = useMutation(UPDATE_RESTAURANT, {
-		onCompleted: () => console.log('COMPLETED')
+		onCompleted: () => message.success('Your changes has been saved!'),
+		onError: () => message.error('Something went wrong. Please try again!')
 	});
 
 	const onSubmit = useCallback((restaurant) => {
