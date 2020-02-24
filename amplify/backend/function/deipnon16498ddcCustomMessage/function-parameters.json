@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "verification-link"
+    ],
+    "parentResource": "deipnon16498ddc",
+    "functionName": "deipnon16498ddcCustomMessage",
+    "parentStack": "auth",
+    "triggerEnvs": "[{\"key\":\"RESOURCENAME\",\"value\":\"resourceName\"}]",
+    "triggerTemplate": "CustomMessage.json.ejs",
+    "roleName": "deipnon16498ddcCustomMessage",
+    "skipEdit": true,
+    "resourceName": "deipnon16498ddcCustomMessage"
+}
