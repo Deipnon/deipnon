@@ -58,3 +58,19 @@ type WorkHour
   startAt: AWSTime!
   endAt: AWSTime!
 }
+
+type ProductCategory 
+  @model
+  @auth(rules: [
+    {allow: groups, groups: ["Managers"], operations: [create, read, update]},
+    {allow: groups, groups: ["Employees"], operations: [read]}
+  ])
+  @key(name: "byRestaurant", fields: ["restaurantId"])
+{
+  id: ID!
+  restaurantId: ID!
+  name: String!
+  description: String
+  imageUrl: String
+  isActive: Boolean!
+}

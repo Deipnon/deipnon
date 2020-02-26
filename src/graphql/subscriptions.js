@@ -97,3 +97,39 @@ export const onDeleteWorkHour = /* GraphQL */ `
     }
   }
 `;
+export const onCreateProductCategory = /* GraphQL */ `
+  subscription OnCreateProductCategory {
+    onCreateProductCategory {
+      id
+      restaurantId
+      name
+      description
+      imageUrl
+      isActive
+    }
+  }
+`;
+export const onUpdateProductCategory = /* GraphQL */ `
+  subscription OnUpdateProductCategory {
+    onUpdateProductCategory {
+      id
+      restaurantId
+      name
+      description
+      imageUrl
+      isActive
+    }
+  }
+`;
+export const onDeleteProductCategory = /* GraphQL */ `
+  subscription OnDeleteProductCategory {
+    onDeleteProductCategory {
+      id
+      restaurantId
+      name
+      description
+      imageUrl
+      isActive
+    }
+  }
+`;

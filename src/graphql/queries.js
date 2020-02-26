@@ -87,3 +87,38 @@ export const listWorkHours = /* GraphQL */ `
     }
   }
 `;
+export const getProductCategory = /* GraphQL */ `
+  query GetProductCategory($id: ID!) {
+    getProductCategory(id: $id) {
+      id
+      restaurantId
+      name
+      description
+      imageUrl
+      isActive
+    }
+  }
+`;
+export const listProductCategorys = /* GraphQL */ `
+  query ListProductCategorys(
+    $filter: ModelProductCategoryFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listProductCategorys(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        restaurantId
+        name
+        description
+        imageUrl
+        isActive
+      }
+      nextToken
+    }
+  }
+`;

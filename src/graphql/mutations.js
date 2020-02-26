@@ -115,3 +115,48 @@ export const deleteWorkHour = /* GraphQL */ `
     }
   }
 `;
+export const createProductCategory = /* GraphQL */ `
+  mutation CreateProductCategory(
+    $input: CreateProductCategoryInput!
+    $condition: ModelProductCategoryConditionInput
+  ) {
+    createProductCategory(input: $input, condition: $condition) {
+      id
+      restaurantId
+      name
+      description
+      imageUrl
+      isActive
+    }
+  }
+`;
+export const updateProductCategory = /* GraphQL */ `
+  mutation UpdateProductCategory(
+    $input: UpdateProductCategoryInput!
+    $condition: ModelProductCategoryConditionInput
+  ) {
+    updateProductCategory(input: $input, condition: $condition) {
+      id
+      restaurantId
+      name
+      description
+      imageUrl
+      isActive
+    }
+  }
+`;
+export const deleteProductCategory = /* GraphQL */ `
+  mutation DeleteProductCategory(
+    $input: DeleteProductCategoryInput!
+    $condition: ModelProductCategoryConditionInput
+  ) {
+    deleteProductCategory(input: $input, condition: $condition) {
+      id
+      restaurantId
+      name
+      description
+      imageUrl
+      isActive
+    }
+  }
+`;

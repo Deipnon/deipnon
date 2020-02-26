@@ -178,6 +178,39 @@ export type DeleteWorkHourInput = {|
   id?: ?string,
 |};
 
+export type CreateProductCategoryInput = {|
+  id?: ?string,
+  restaurantId: string,
+  name: string,
+  description?: ?string,
+  imageUrl?: ?string,
+  isActive: boolean,
+|};
+
+export type ModelProductCategoryConditionInput = {|
+  restaurantId?: ?ModelIDInput,
+  name?: ?ModelStringInput,
+  description?: ?ModelStringInput,
+  imageUrl?: ?ModelStringInput,
+  isActive?: ?ModelBooleanInput,
+  and?: ?Array< ?ModelProductCategoryConditionInput >,
+  or?: ?Array< ?ModelProductCategoryConditionInput >,
+  not?: ?ModelProductCategoryConditionInput,
+|};
+
+export type UpdateProductCategoryInput = {|
+  id: string,
+  restaurantId?: ?string,
+  name?: ?string,
+  description?: ?string,
+  imageUrl?: ?string,
+  isActive?: ?boolean,
+|};
+
+export type DeleteProductCategoryInput = {|
+  id?: ?string,
+|};
+
 export type GeolocationRequest = {|
   addressLine: string,
   zipCode: string,
@@ -215,6 +248,18 @@ export type ModelWorkHourFilterInput = {|
   and?: ?Array< ?ModelWorkHourFilterInput >,
   or?: ?Array< ?ModelWorkHourFilterInput >,
   not?: ?ModelWorkHourFilterInput,
+|};
+
+export type ModelProductCategoryFilterInput = {|
+  id?: ?ModelIDInput,
+  restaurantId?: ?ModelIDInput,
+  name?: ?ModelStringInput,
+  description?: ?ModelStringInput,
+  imageUrl?: ?ModelStringInput,
+  isActive?: ?ModelBooleanInput,
+  and?: ?Array< ?ModelProductCategoryFilterInput >,
+  or?: ?Array< ?ModelProductCategoryFilterInput >,
+  not?: ?ModelProductCategoryFilterInput,
 |};
 
 export type CreateRestaurantMutationVariables = {|
@@ -343,6 +388,57 @@ export type DeleteWorkHourMutation = {|
   |},
 |};
 
+export type CreateProductCategoryMutationVariables = {|
+  input: CreateProductCategoryInput,
+  condition?: ?ModelProductCategoryConditionInput,
+|};
+
+export type CreateProductCategoryMutation = {|
+  createProductCategory: ? {|
+    __typename: "ProductCategory",
+    id: string,
+    restaurantId: string,
+    name: string,
+    description: ?string,
+    imageUrl: ?string,
+    isActive: boolean,
+  |},
+|};
+
+export type UpdateProductCategoryMutationVariables = {|
+  input: UpdateProductCategoryInput,
+  condition?: ?ModelProductCategoryConditionInput,
+|};
+
+export type UpdateProductCategoryMutation = {|
+  updateProductCategory: ? {|
+    __typename: "ProductCategory",
+    id: string,
+    restaurantId: string,
+    name: string,
+    description: ?string,
+    imageUrl: ?string,
+    isActive: boolean,
+  |},
+|};
+
+export type DeleteProductCategoryMutationVariables = {|
+  input: DeleteProductCategoryInput,
+  condition?: ?ModelProductCategoryConditionInput,
+|};
+
+export type DeleteProductCategoryMutation = {|
+  deleteProductCategory: ? {|
+    __typename: "ProductCategory",
+    id: string,
+    restaurantId: string,
+    name: string,
+    description: ?string,
+    imageUrl: ?string,
+    isActive: boolean,
+  |},
+|};
+
 export type GetGeolocationQueryVariables = {|
   request?: ?GeolocationRequest,
 |};
@@ -447,6 +543,44 @@ export type ListWorkHoursQuery = {|
   |},
 |};
 
+export type GetProductCategoryQueryVariables = {|
+  id: string,
+|};
+
+export type GetProductCategoryQuery = {|
+  getProductCategory: ? {|
+    __typename: "ProductCategory",
+    id: string,
+    restaurantId: string,
+    name: string,
+    description: ?string,
+    imageUrl: ?string,
+    isActive: boolean,
+  |},
+|};
+
+export type ListProductCategorysQueryVariables = {|
+  filter?: ?ModelProductCategoryFilterInput,
+  limit?: ?number,
+  nextToken?: ?string,
+|};
+
+export type ListProductCategorysQuery = {|
+  listProductCategorys: ? {|
+    __typename: "ModelProductCategoryConnection",
+    items: ? Array<? {|
+      __typename: "ProductCategory",
+      id: string,
+      restaurantId: string,
+      name: string,
+      description: ?string,
+      imageUrl: ?string,
+      isActive: boolean,
+    |} >,
+    nextToken: ?string,
+  |},
+|};
+
 export type OnCreateRestaurantSubscription = {|
   onCreateRestaurant: ? {|
     __typename: "Restaurant",
@@ -540,5 +674,41 @@ export type OnDeleteWorkHourSubscription = {|
     day: string,
     startAt: any,
     endAt: any,
+  |},
+|};
+
+export type OnCreateProductCategorySubscription = {|
+  onCreateProductCategory: ? {|
+    __typename: "ProductCategory",
+    id: string,
+    restaurantId: string,
+    name: string,
+    description: ?string,
+    imageUrl: ?string,
+    isActive: boolean,
+  |},
+|};
+
+export type OnUpdateProductCategorySubscription = {|
+  onUpdateProductCategory: ? {|
+    __typename: "ProductCategory",
+    id: string,
+    restaurantId: string,
+    name: string,
+    description: ?string,
+    imageUrl: ?string,
+    isActive: boolean,
+  |},
+|};
+
+export type OnDeleteProductCategorySubscription = {|
+  onDeleteProductCategory: ? {|
+    __typename: "ProductCategory",
+    id: string,
+    restaurantId: string,
+    name: string,
+    description: ?string,
+    imageUrl: ?string,
+    isActive: boolean,
   |},
 |};
