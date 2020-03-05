@@ -3,76 +3,71 @@ import React, { useState } from 'react';
 import { Form, Input, Row, Col, Button } from 'antd';
 
 // Helpers
-import FormValidators from '../../../helpers/formValidatiors'
+import { formValidators, toFormData } from '../../../helpers/form'
 
 import type { RestaurantType } from '../../../types/restaurant'
 
 type PropsType = {|
-  form: Form,
   onSubmit: (restaurant: RestaurantType, done: () => void) => void,
-  id: String
+  id: String,
+  restaurant: RestaurantType
 |}
 
-const RestaurantInfoForm = ({ form, onSubmit, id }: PropsType): React$Node => {
+const RestaurantInfoForm = ({ restaurant, onSubmit }: PropsType): React$Node => {
   const [isBusy, setBusy] = useState(false)
+  const [form] = Form.useForm();
 
-  const submit = e => {
-    e.preventDefault();
+  const handleSubmit = values => {
+    setBusy(true)
     
-    form.validateFields((err, values) => {
-      if (!err) {
-        setBusy(true)
-        onSubmit({
-          id,
-          ...values
-        }, () => setBusy(false));
-      }
-    });
+    onSubmit({
+      id: restaurant.id,
+      ...values
+    }, () => setBusy(false));
   };
-
-  const { getFieldDecorator } = form;
+  
   return (
-    <Form onSubmit={submit}>
+    <Form form={form} fields={toFormData(restaurant)} onFinish={handleSubmit} layout="vertical">
       <Row gutter={16}>
         <Col span={24}>
-          <Form.Item label="Name" hasFeedback>
-            {getFieldDecorator('name', FormValidators.name)(<Input size="large" />)}
+          <Form.Item label="Name" name="name" rules={formValidators.name} hasFeedback>
+            <Input size="large" />
           </Form.Item>
         </Col>
       </Row>
         <Row gutter={16}>
           <Col xs={24} md={12}>
-            <Form.Item label="Phone">
-              {getFieldDecorator('phone')(<Input size="large" />)}
+            <Form.Item label="Phone" name="phone">
+              <Input size="large" />
             </Form.Item>
           </Col>
           <Col xs={24} md={12}>
-            <Form.Item label="E-Mail">
-              {getFieldDecorator('email')(<Input size="large" />)}
-            </Form.Item>
-          </Col>
-        </Row>
-        <Row gutter={16}>
-          <Col xs={24} md={12}>
-            <Form.Item label="Address line" hasFeedback>
-              {getFieldDecorator('addressLine', FormValidators.addressLine)(<Input size="large" />)}
-            </Form.Item>
-          </Col>
-          <Col xs={24} md={12}>
-            <Form.Item label="Zip Code" hasFeedback>
-              {getFieldDecorator('zipCode', FormValidators.zipCode)(<Input size="large" />)}
+            <Form.Item label="E-Mail" name="email">
+              <Input size="large" />
             </Form.Item>
           </Col>
         </Row>
         <Row gutter={16}>
           <Col xs={24} md={12}>
-            <Form.Item label="City" hasFeedback>
-              {getFieldDecorator('city', FormValidators.city)(<Input size="large" />)}
+            <Form.Item label="Address line" name="addressLine" rules={formValidators.addressLine} hasFeedback>
+              <Input size="large" />
             </Form.Item>
           </Col>
           <Col xs={24} md={12}>
-            <Form.Item label="State" hasFeedback>
-              {getFieldDecorator('state', FormValidators.state)(<Input size="large" />)}
+            <Form.Item label="Zip Code" name="zipCode" rules={formValidators.zipCode} hasFeedback>
+              <Input size="large" />
+            </Form.Item>
+          </Col>
+        </Row>
+        <Row gutter={16}>
+          <Col xs={24} md={12}>
+            <Form.Item label="City" name="city" rules={formValidators.city} hasFeedback>
+              <Input size="large" />
+            </Form.Item>
+          </Col>
+          <Col xs={24} md={12}>
+            <Form.Item label="State" name="state" rules={formValidators.state} hasFeedback>
+              <Input size="large" />
             </Form.Item>
           </Col>
         </Row>
@@ -83,15 +78,5 @@ const RestaurantInfoForm = ({ form, onSubmit, id }: PropsType): React$Node => {
   );
 };
 
-const fields = ['name', 'phone', 'email', 'addressLine', 'zipCode', 'city', 'state'];
 
-export default Form.create({
-  mapPropsToFields(props) {
-    return fields.reduce((prev, curr) => {
-      prev[curr] = Form.createFormField({
-        value: props[curr]
-      });
-      return prev;
-    }, {});
-  }
-})(RestaurantInfoForm);
+export default RestaurantInfoForm

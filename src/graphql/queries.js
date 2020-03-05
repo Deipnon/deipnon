@@ -9,6 +9,18 @@ export const getGeolocation = /* GraphQL */ `
     }
   }
 `;
+export const searchImage = /* GraphQL */ `
+  query SearchImage($request: ImageSearchRequest) {
+    searchImage(request: $request) {
+      description
+      raw
+      full
+      regular
+      small
+      thumb
+    }
+  }
+`;
 export const getRestaurant = /* GraphQL */ `
   query GetRestaurant($id: ID!) {
     getRestaurant(id: $id) {
@@ -94,8 +106,16 @@ export const getProductCategory = /* GraphQL */ `
       restaurantId
       name
       description
-      imageUrl
+      image {
+        description
+        raw
+        full
+        regular
+        small
+        thumb
+      }
       isActive
+      sortOrder
     }
   }
 `;
@@ -115,8 +135,16 @@ export const listProductCategorys = /* GraphQL */ `
         restaurantId
         name
         description
-        imageUrl
+        image {
+          description
+          raw
+          full
+          regular
+          small
+          thumb
+        }
         isActive
+        sortOrder
       }
       nextToken
     }

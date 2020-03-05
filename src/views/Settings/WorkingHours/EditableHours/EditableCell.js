@@ -1,87 +1,76 @@
-import React from 'react'
-import { Form , TimePicker} from 'antd'
+import React, { useState, useRef, useContext, useEffect} from 'react'
+import { Form, TimePicker } from 'antd'
 
 import { EditableContext } from './EditableRow'
 
-class EditableCell extends React.PureComponent {
-  state = {
-    editing: false,
-  };
-  
-  toggleEdit = () => {
-    const editing = !this.state.editing;
-    this.setState({ editing }, () => {
-      if (editing) {
-        this.input.focus();
-      }
+const EditableCell = ({
+  title,
+  editable,
+  children,
+  dataIndex,
+  record,
+  handleSave,
+  ...restProps
+}) => {
+  const [editing, setEditing] = useState(false);
+  const inputRef = useRef();
+  const form = useContext(EditableContext);
+
+  useEffect(() => {
+    if (editing) {
+      inputRef.current.focus();
+    }
+  }, [editing]);
+
+  const toggleEdit = () => {
+    setEditing(!editing);
+    form.setFieldsValue({
+      [dataIndex]: record[dataIndex],
     });
   };
 
-  save = (isOpen) => {
-    const { record, handleSave } = this.props;
-    
-    if(isOpen) return
-  
-    
-    this.form.validateFields((error, values) => {
-      if (error) {
-        return;
-      }
-      
-      this.toggleEdit();
+  const save = async e => {
+    try {
+      const values = await form.validateFields();
+      toggleEdit();
       handleSave({ ...record, ...values });
-    });
+    } catch (errInfo) {
+      console.log('Save failed:', errInfo);
+    }
   };
 
-  renderCell = form => {
-    this.form = form;
-    const { dataIndex, record, title } = this.props;
-    const { editing } = this.state;
-    return editing ? (
-      <Form.Item style={{ margin: 0 }}>
-        {form.getFieldDecorator(dataIndex, {
-          rules: [
-            {
-              required: true,
-              message: `${title} is required.`,
-            },
-          ],
-          initialValue: record[dataIndex],
-        })(
-          <TimePicker ref={node => (this.input = node)} minuteStep={15} size="large" use12Hours format="h:mm a" onOpenChange={this.save} open={true}/>)}
+  let childNode = children;
+
+  if (editable) {
+    childNode = editing ? (
+      <Form.Item
+        style={{
+          margin: 0,
+        }}
+        name={dataIndex}
+        rules={[
+          {
+            required: true,
+            message: `${title} is required.`,
+          },
+        ]}
+      >
+        <TimePicker ref={inputRef} minuteStep={15} size="large" use12Hours format="h:mm a" onOpenChange={save} open={true} />
       </Form.Item>
     ) : (
-      <div
-        className="editable-cell-value-wrap"
-        style={{ paddingRight: 24 }}
-        onClick={this.toggleEdit}
-      >
-        {record[dataIndex].format('h:mm a')}
-      </div>
-    );
-  };
-
-  render() {
-    const {
-      editable,
-      dataIndex,
-      title,
-      record,
-      index,
-      handleSave,
-      children,
-      ...restProps
-    } = this.props;
-    return (
-      <td {...restProps}>
-        {editable ? (
-          <EditableContext.Consumer>{this.renderCell}</EditableContext.Consumer>
-        ) : (
-          children
-        )}
-      </td>
-    );
+        <div
+          className="editable-cell-value-wrap"
+          style={{
+            paddingRight: 24,
+          }}
+          onClick={toggleEdit}
+        >
+          {record[dataIndex].format('h:mm a')}
+        </div>
+      );
   }
+
+  return <td {...restProps}>{childNode}</td>;
 }
 
 export default EditableCell

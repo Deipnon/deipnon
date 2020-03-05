@@ -32,8 +32,22 @@ input GeolocationRequest {
 	state: String!
 }
 
+type ImageSearch {
+  description: String,
+  raw: String,
+  full: String,
+  regular: String,
+  small: String,
+  thumb: String
+}
+
+input ImageSearchRequest {
+  searchKey: String!
+}
+
 type Query {
 	getGeolocation(request: GeolocationRequest): Geolocation
+  searchImage(request: ImageSearchRequest): [ImageSearch]
 }
 
 enum WorkingHourTypes {
@@ -59,6 +73,7 @@ type WorkHour
   endAt: AWSTime!
 }
 
+
 type ProductCategory 
   @model
   @auth(rules: [
@@ -71,6 +86,7 @@ type ProductCategory
   restaurantId: ID!
   name: String!
   description: String
-  imageUrl: String
+  image: ImageSearch
   isActive: Boolean!
+  sortOrder: Int!
 }

@@ -104,8 +104,16 @@ export const onCreateProductCategory = /* GraphQL */ `
       restaurantId
       name
       description
-      imageUrl
+      image {
+        description
+        raw
+        full
+        regular
+        small
+        thumb
+      }
       isActive
+      sortOrder
     }
   }
 `;
@@ -116,8 +124,16 @@ export const onUpdateProductCategory = /* GraphQL */ `
       restaurantId
       name
       description
-      imageUrl
+      image {
+        description
+        raw
+        full
+        regular
+        small
+        thumb
+      }
       isActive
+      sortOrder
     }
   }
 `;
@@ -128,8 +144,16 @@ export const onDeleteProductCategory = /* GraphQL */ `
       restaurantId
       name
       description
-      imageUrl
+      image {
+        description
+        raw
+        full
+        regular
+        small
+        thumb
+      }
       isActive
+      sortOrder
     }
   }
 `;

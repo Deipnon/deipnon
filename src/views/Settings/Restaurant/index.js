@@ -33,7 +33,7 @@ const Restaurant = (): React$Node => {
     const { geolocation: { lat, lng } } = await get(getGeolocation, {
       request: address
     }, 'geolocation')
-    
+
     update({
       variables: {
         input: {
@@ -55,7 +55,7 @@ const Restaurant = (): React$Node => {
   }
 
   // Render
-  return <RestaurantForm {...restaurant} onSubmit={handleSubmit} />
+  return <RestaurantForm restaurant={restaurant} onSubmit={handleSubmit} />
 }
 
 

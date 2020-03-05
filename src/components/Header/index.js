@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 // @flow
 import React, { useContext } from 'react';
-import { Icon, Layout } from 'antd'
+import { Layout } from 'antd'
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 
 import { SideMenuContext } from '../../views/Layout'
 
@@ -15,11 +17,9 @@ const HeaderBar = () => {
     <Header className="bg-warning">
       <div className="list-unstyled list-inline">
         <a className="list-inline-item d-none d-md-inline-block">
-        <Icon
-          className="trigger list-icon"
-          onClick={toggleSideMenu}
-          type={isCollapsed ? 'menu-unfold' : 'menu-fold'}
-        />
+          { isCollapsed ?
+            <MenuFoldOutlined className="trigger list-icon" onClick={toggleSideMenu}/>:
+            <MenuUnfoldOutlined className="trigger list-icon" onClick={toggleSideMenu}/>}
         </a>
       </div>
     </Header>

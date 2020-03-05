@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { Popconfirm, Table, Button} from 'antd'
+import { Popconfirm, Table, Button } from 'antd'
 
 import EditableRow from './EditableRow'
 import EditableCell from './EditableCell'
@@ -43,7 +44,7 @@ class EditableTable extends React.PureComponent {
     };
   }
 
-  static getDerivedStateFromProps( { data }, state) {
+  static getDerivedStateFromProps({ data }, state) {
     return !state.fetched ? {
       dataSource: data,
       fetched: true
@@ -52,16 +53,16 @@ class EditableTable extends React.PureComponent {
 
   handleCopy = key => {
     const referanceItem = this.state.dataSource.find(item => item.key === key)
-    
+
     const updatedItems = this.state.dataSource.map(item => ({
       ...item,
       startAt: referanceItem.startAt,
       endAt: referanceItem.endAt
     }))
-    
-    
+
+
     this.setState({
-      dataSource: updatedItems  
+      dataSource: updatedItems
     })
   }
 
@@ -76,8 +77,8 @@ class EditableTable extends React.PureComponent {
     });
     this.setState({ dataSource: newData });
   };
-  
-  
+
+
   handleSaveAll = () => {
     this.props.onSave(this.state.dataSource, () => {
       this.setState({ fetched: false })
@@ -120,8 +121,8 @@ class EditableTable extends React.PureComponent {
           dataSource={dataSource}
           columns={columns}
         />
-        
-        <Button type="primary" size="large" style={{marginTop: '15px'}} onClick={this.handleSaveAll}>Save</Button>
+
+        <Button type="primary" size="large" style={{ marginTop: '15px' }} onClick={this.handleSaveAll}>Save</Button>
       </div>
     );
   }

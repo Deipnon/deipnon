@@ -5,7 +5,7 @@ import { pathOr } from 'ramda'
 import moment from 'moment'
 import { useMutation, useQuery } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
-import { notification, Card, Button } from 'antd'
+import { notification, Card } from 'antd'
 
 // Hooks
 import { useRestaurant } from '../../../hooks'
@@ -16,26 +16,28 @@ import { updateWorkHour } from '../../../graphql/mutations';
 
 type PropsType = {|
   hourType: String,
-  title: String  
+  title: String
 |}
 
-const WorkingHoursEditor = ({ hourType, title }:PropsType): React$Node => {
+const WorkingHoursEditor = ({ hourType, title }: PropsType): React$Node => {
 
   const restaurant = useRestaurant();
-  const { data = { }, loading } = useQuery(gql(listWorkHours), {
-    variables: { filter: {
-      restaurantId: { eq: restaurant.id}, 
-      type: { eq: hourType}
-    }, limit: 21 }
+  const { data = {}, loading } = useQuery(gql(listWorkHours), {
+    variables: {
+      filter: {
+        restaurantId: { eq: restaurant.id },
+        type: { eq: hourType }
+      }, limit: 21
+    }
   })
   const [update] = useMutation(gql(updateWorkHour))
 
   const bussinessWorkingHours = useMemo(() => {
-    if(loading) {
+    if (loading) {
       return []
     }
     const workingHours = pathOr([], ['listWorkHours', 'items'], data)
-    
+
     return workingHours
       .filter(workingHour => workingHour.type === hourType)
       .map(workingHour => ({
@@ -67,10 +69,10 @@ const WorkingHoursEditor = ({ hourType, title }:PropsType): React$Node => {
   }
 
   return !loading ? (
-    <Card title={title} headStyle={{ fontWeight: "bold"}}>
+    <Card title={title} headStyle={{ fontWeight: "bold" }}>
       <EditableHours data={bussinessWorkingHours} onSave={save} />
-      </Card>
-    ) : null
+    </Card>
+  ) : null
 }
 
 export default WorkingHoursEditor

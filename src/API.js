@@ -183,16 +183,26 @@ export type CreateProductCategoryInput = {|
   restaurantId: string,
   name: string,
   description?: ?string,
-  imageUrl?: ?string,
+  image?: ?ImageSearchInput,
   isActive: boolean,
+  sortOrder: number,
+|};
+
+export type ImageSearchInput = {|
+  description?: ?string,
+  raw?: ?string,
+  full?: ?string,
+  regular?: ?string,
+  small?: ?string,
+  thumb?: ?string,
 |};
 
 export type ModelProductCategoryConditionInput = {|
   restaurantId?: ?ModelIDInput,
   name?: ?ModelStringInput,
   description?: ?ModelStringInput,
-  imageUrl?: ?ModelStringInput,
   isActive?: ?ModelBooleanInput,
+  sortOrder?: ?ModelIntInput,
   and?: ?Array< ?ModelProductCategoryConditionInput >,
   or?: ?Array< ?ModelProductCategoryConditionInput >,
   not?: ?ModelProductCategoryConditionInput,
@@ -203,8 +213,9 @@ export type UpdateProductCategoryInput = {|
   restaurantId?: ?string,
   name?: ?string,
   description?: ?string,
-  imageUrl?: ?string,
+  image?: ?ImageSearchInput,
   isActive?: ?boolean,
+  sortOrder?: ?number,
 |};
 
 export type DeleteProductCategoryInput = {|
@@ -216,6 +227,10 @@ export type GeolocationRequest = {|
   zipCode: string,
   city: string,
   state: string,
+|};
+
+export type ImageSearchRequest = {|
+  searchKey: string,
 |};
 
 export type ModelRestaurantFilterInput = {|
@@ -255,8 +270,8 @@ export type ModelProductCategoryFilterInput = {|
   restaurantId?: ?ModelIDInput,
   name?: ?ModelStringInput,
   description?: ?ModelStringInput,
-  imageUrl?: ?ModelStringInput,
   isActive?: ?ModelBooleanInput,
+  sortOrder?: ?ModelIntInput,
   and?: ?Array< ?ModelProductCategoryFilterInput >,
   or?: ?Array< ?ModelProductCategoryFilterInput >,
   not?: ?ModelProductCategoryFilterInput,
@@ -400,8 +415,17 @@ export type CreateProductCategoryMutation = {|
     restaurantId: string,
     name: string,
     description: ?string,
-    imageUrl: ?string,
+    image: ? {|
+      __typename: "ImageSearch",
+      description: ?string,
+      raw: ?string,
+      full: ?string,
+      regular: ?string,
+      small: ?string,
+      thumb: ?string,
+    |},
     isActive: boolean,
+    sortOrder: number,
   |},
 |};
 
@@ -417,8 +441,17 @@ export type UpdateProductCategoryMutation = {|
     restaurantId: string,
     name: string,
     description: ?string,
-    imageUrl: ?string,
+    image: ? {|
+      __typename: "ImageSearch",
+      description: ?string,
+      raw: ?string,
+      full: ?string,
+      regular: ?string,
+      small: ?string,
+      thumb: ?string,
+    |},
     isActive: boolean,
+    sortOrder: number,
   |},
 |};
 
@@ -434,8 +467,17 @@ export type DeleteProductCategoryMutation = {|
     restaurantId: string,
     name: string,
     description: ?string,
-    imageUrl: ?string,
+    image: ? {|
+      __typename: "ImageSearch",
+      description: ?string,
+      raw: ?string,
+      full: ?string,
+      regular: ?string,
+      small: ?string,
+      thumb: ?string,
+    |},
     isActive: boolean,
+    sortOrder: number,
   |},
 |};
 
@@ -449,6 +491,22 @@ export type GetGeolocationQuery = {|
     lat: ?number,
     lng: ?number,
   |},
+|};
+
+export type SearchImageQueryVariables = {|
+  request?: ?ImageSearchRequest,
+|};
+
+export type SearchImageQuery = {|
+  searchImage: ? Array<? {|
+    __typename: "ImageSearch",
+    description: ?string,
+    raw: ?string,
+    full: ?string,
+    regular: ?string,
+    small: ?string,
+    thumb: ?string,
+  |} >,
 |};
 
 export type GetRestaurantQueryVariables = {|
@@ -554,8 +612,17 @@ export type GetProductCategoryQuery = {|
     restaurantId: string,
     name: string,
     description: ?string,
-    imageUrl: ?string,
+    image: ? {|
+      __typename: "ImageSearch",
+      description: ?string,
+      raw: ?string,
+      full: ?string,
+      regular: ?string,
+      small: ?string,
+      thumb: ?string,
+    |},
     isActive: boolean,
+    sortOrder: number,
   |},
 |};
 
@@ -574,8 +641,17 @@ export type ListProductCategorysQuery = {|
       restaurantId: string,
       name: string,
       description: ?string,
-      imageUrl: ?string,
+      image: ? {|
+        __typename: "ImageSearch",
+        description: ?string,
+        raw: ?string,
+        full: ?string,
+        regular: ?string,
+        small: ?string,
+        thumb: ?string,
+      |},
       isActive: boolean,
+      sortOrder: number,
     |} >,
     nextToken: ?string,
   |},
@@ -684,8 +760,17 @@ export type OnCreateProductCategorySubscription = {|
     restaurantId: string,
     name: string,
     description: ?string,
-    imageUrl: ?string,
+    image: ? {|
+      __typename: "ImageSearch",
+      description: ?string,
+      raw: ?string,
+      full: ?string,
+      regular: ?string,
+      small: ?string,
+      thumb: ?string,
+    |},
     isActive: boolean,
+    sortOrder: number,
   |},
 |};
 
@@ -696,8 +781,17 @@ export type OnUpdateProductCategorySubscription = {|
     restaurantId: string,
     name: string,
     description: ?string,
-    imageUrl: ?string,
+    image: ? {|
+      __typename: "ImageSearch",
+      description: ?string,
+      raw: ?string,
+      full: ?string,
+      regular: ?string,
+      small: ?string,
+      thumb: ?string,
+    |},
     isActive: boolean,
+    sortOrder: number,
   |},
 |};
 
@@ -708,7 +802,16 @@ export type OnDeleteProductCategorySubscription = {|
     restaurantId: string,
     name: string,
     description: ?string,
-    imageUrl: ?string,
+    image: ? {|
+      __typename: "ImageSearch",
+      description: ?string,
+      raw: ?string,
+      full: ?string,
+      regular: ?string,
+      small: ?string,
+      thumb: ?string,
+    |},
     isActive: boolean,
+    sortOrder: number,
   |},
 |};
