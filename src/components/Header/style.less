@@ -1,0 +1,25 @@
+@import '~antd/dist/antd.less';
+
+.ant-layout-header {
+  height: 60px !important;
+  line-height: 60px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  
+  .list-inline-item {
+    padding: 0 .875rem;
+    margin: 0;
+    transition: all .3s;
+    height: 60px;
+    
+    .list-icon {
+      font-size: 18px;
+      line-height: 60px;
+      padding: 0 4px;
+    }
+    
+    &:hover {
+      background-color: darken(@gold-5, 5%);
+    }
+  }
+}

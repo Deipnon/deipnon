@@ -1,0 +1,17 @@
+[ignore]
+
+[include]
+
+[libs]
+./flow-typed
+
+[lints]
+
+[options]
+
+suppress_type=$FlowFixMe
+suppress_type=$FlowToDo
+
+sharedmemory.hash_table_pow=21
+
+[strict]
